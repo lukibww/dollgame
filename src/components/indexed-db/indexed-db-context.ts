@@ -1,9 +1,13 @@
 import { createContext } from "react";
 
-export interface IndexedDBContextValue {
-  instance: IDBFactory;
-}
+export type IndexedDBContextValue =
+  | IDBDatabase
+  | "loading"
+  | "not supported"
+  | "not allowed"
+  | "error"
+  | null;
 
-const IndexedDBContext = createContext<IndexedDBContextValue | null>(null);
+const IndexedDBContext = createContext<IndexedDBContextValue>(null);
 
 export default IndexedDBContext;
