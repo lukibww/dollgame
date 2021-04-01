@@ -1,0 +1,27 @@
+[build]
+    publish = "build"
+    command = "yarn build"
+
+[build.environment]
+    GENERATE_SOURCEMAP = false
+    NETLIFY_USE_YARN = true
+    YARN_VERSION = "1.22.10"
+    YARN_FLAGS = "--production=false"
+    NODE_ENV = "production"
+
+[[redirects]]
+    from = "/*"
+    to = "/index.html"
+    status = 200
+
+[[headers]]
+    for = "/*"
+
+    [headers.values]
+        Cache-Control = "no-cache"
+
+[[headers]]
+    for = "/static/*"
+
+    [headers.values]
+        Cache-Control = "max-age=31536000"
