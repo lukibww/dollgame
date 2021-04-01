@@ -1,5 +1,10 @@
 import ReactDOM from "react-dom";
-import { App } from "./components";
+import { App, IndexedDB } from "./components";
 import "./styles/index.scss";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <IndexedDB>
+    <App />
+  </IndexedDB>,
+  document.getElementById("root")
+);
