@@ -3,8 +3,8 @@
     command = "yarn build"
 
 [build.environment]
-    GENERATE_SOURCEMAP = false
-    NETLIFY_USE_YARN = true
+    GENERATE_SOURCEMAP = "false"
+    NETLIFY_USE_YARN = "true"
     YARN_VERSION = "1.22.10"
     YARN_FLAGS = "--production=false"
     NODE_ENV = "production"
