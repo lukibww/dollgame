@@ -1,0 +1,67 @@
+import { START, END, FAILURE } from "../constans";
+
+/**
+ * Some thread or episode of the novel
+ */
+export interface Chapter {
+  // Unique chapter ID
+  id: string;
+
+  // Name of the chapter. Can be taken from the novel
+  name: string;
+
+  // Previev of what will happen in the chapter (optional)
+  description?: string;
+
+  // Path to the image source (optional)
+  image?: string;
+
+  // Path to the audio played during the gameplay (optional)
+  audio?: string;
+
+  // Chapter dialogs
+  dialogs: Dialog[];
+}
+
+/**
+ * Chapter dialog where the user can choose between options
+ */
+export interface Dialog {
+  // Unique dialog ID
+  id: string;
+
+  // Label representing the dialog (optional)
+  label?: string;
+
+  // Description of the situation (optional)
+  text?: string;
+
+  // Path to the background source (optional)
+  background?: string;
+
+  // Dialog choices
+  choices: Choice[];
+}
+
+/**
+ * User choice that will lead him to another dialog
+ */
+export interface Choice {
+  // Unique choice ID
+  id: string;
+
+  // Text representing the choice
+  text: string;
+
+  // Reference to the previous dialog
+  prev: ChoiceAction;
+
+  // Reference to the next dialog
+  next: ChoiceAction;
+}
+
+/**
+ * Action performed when user makes a choice
+ * Dialog ID, start, end, or failure of the chapter
+ */
+export type ChoiceAction = string | typeof START | typeof END | typeof FAILURE;

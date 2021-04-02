@@ -1,7 +1,6 @@
 import { ReactNode, useEffect, useState } from "react";
+import { INDEXED_DB_NAME, INDEXED_DB_VERSION } from "../../constans";
 import IndexedDBContext, { IndexedDBContextValue } from "./indexed-db-context";
-
-const INDEXED_DB_NAME = "Lalka";
 
 export interface IndexedDBProps {
   children?: ReactNode;
@@ -18,7 +17,7 @@ function IndexedDB({ children }: IndexedDBProps) {
       return;
     }
 
-    const request = instance.open(INDEXED_DB_NAME);
+    const request = instance.open(INDEXED_DB_NAME, INDEXED_DB_VERSION);
 
     request.onerror = () => setState("not allowed");
     request.onsuccess = (event) => setState((event.target as any).result);
