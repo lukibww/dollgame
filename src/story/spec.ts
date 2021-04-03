@@ -5,7 +5,7 @@ import { start, end, failure } from "../constans";
  */
 export interface Progress {
   // There will be only one progress, but we need a database ID
-  id: string;
+  id: number;
 
   // Whether the user has started the game
   started: boolean;
@@ -22,7 +22,7 @@ export interface Progress {
  */
 export interface Chapter {
   // Unique chapter ID
-  id: string;
+  id: number;
 
   // Name of the chapter. Can be taken from the novel
   name: string;
@@ -42,7 +42,7 @@ export interface Chapter {
  */
 export interface Dialog {
   // Unique dialog ID
-  id: string;
+  id: number;
 
   // Label representing the dialog (optional)
   label?: string;
@@ -62,7 +62,7 @@ export interface Dialog {
  */
 export interface Choice {
   // Unique choice ID
-  id: string;
+  id: number;
 
   // Text representing the choice
   text: string;

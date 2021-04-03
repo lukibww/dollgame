@@ -10,7 +10,7 @@ import {
 import { Progress } from "../../story/spec";
 
 const defaultProgress: Progress = {
-  id: "788a5143-7ccd-4b33-86c2-cce9601b6135",
+  id: 0,
   started: false,
   chapterId: null,
   dialogId: null,
