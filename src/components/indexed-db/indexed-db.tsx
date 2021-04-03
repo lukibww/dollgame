@@ -1,6 +1,7 @@
 import { ReactNode, useEffect, useState } from "react";
-import { INDEXED_DB_NAME, INDEXED_DB_VERSION } from "../../constans";
+import { indexedDbName, indexedDbVersion } from "../../constans";
 import IndexedDBContext, { IndexedDBContextValue } from "./indexed-db-context";
+import initIndexedDB from "./init-indexed-db";
 
 export interface IndexedDBProps {
   children?: ReactNode;
@@ -17,11 +18,16 @@ function IndexedDB({ children }: IndexedDBProps) {
       return;
     }
 
-    const request = instance.open(INDEXED_DB_NAME, INDEXED_DB_VERSION);
+    const request = instance.open(indexedDbName, indexedDbVersion);
 
     request.onerror = () => setState("not allowed");
     request.onsuccess = (event) => setState((event.target as any).result);
-    request.onupgradeneeded = (event) => setState((event.target as any).result);
+    request.onupgradeneeded = (event) => {
+      const database = (event.target as any).result as IDBDatabase;
+
+      setState(database);
+      initIndexedDB(database);
+    };
   }, []);
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { Chapter } from "./spec";
+import { Chapter, Choice, Dialog } from "./spec";
 
 /**
  * The file where all the data is stored
@@ -9,6 +9,8 @@ import { Chapter } from "./spec";
  * start cheating
  */
 
-const chapters: Chapter[] = [];
+export const chapters: Chapter[] = [];
 
-export default chapters;
+export const dialogs: Dialog[] = [];
+
+export const choices: Choice[] = [];

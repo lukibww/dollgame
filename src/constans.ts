@@ -1,6 +1,13 @@
-export const INDEXED_DB_NAME = "Lalka";
-export const INDEXED_DB_VERSION = 1;
+export const indexedDbName = "Lalka";
+export const indexedDbVersion = 1;
 
-export const START = "start";
-export const END = "end";
-export const FAILURE = "failure";
+export const chapterStoreName = "chapters";
+export const dialogStoreName = "dialogs";
+export const choiceStoreName = "choices";
+
+export const chapterIndexName = "chapter";
+export const dialogIndexName = "dialog";
+
+export const start = "start";
+export const end = "end";
+export const failure = "failure";

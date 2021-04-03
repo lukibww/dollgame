@@ -1,4 +1,4 @@
-import { START, END, FAILURE } from "../constans";
+import { start, end, failure } from "../constans";
 
 /**
  * Some thread or episode of the novel
@@ -18,9 +18,6 @@ export interface Chapter {
 
   // Path to the audio played during the gameplay (optional)
   audio?: string;
-
-  // Chapter dialogs
-  dialogs: Dialog[];
 }
 
 /**
@@ -39,8 +36,8 @@ export interface Dialog {
   // Path to the background source (optional)
   background?: string;
 
-  // Dialog choices
-  choices: Choice[];
+  // Reference ID to the chapter
+  chapterId: string;
 }
 
 /**
@@ -58,10 +55,13 @@ export interface Choice {
 
   // Reference to the next dialog
   next: ChoiceAction;
+
+  // Reference ID to the dialog
+  dialogId: string;
 }
 
 /**
  * Action performed when user makes a choice
  * Dialog ID, start, end, or failure of the chapter
  */
-export type ChoiceAction = string | typeof START | typeof END | typeof FAILURE;
+export type ChoiceAction = string | typeof start | typeof end | typeof failure;
