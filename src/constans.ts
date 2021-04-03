@@ -1,6 +1,7 @@
 export const indexedDbName = "Lalka";
 export const indexedDbVersion = 1;
 
+export const progressStoreName = "progress";
 export const chapterStoreName = "chapters";
 export const dialogStoreName = "dialogs";
 export const choiceStoreName = "choices";

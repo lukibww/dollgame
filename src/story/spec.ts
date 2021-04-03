@@ -1,6 +1,23 @@
 import { start, end, failure } from "../constans";
 
 /**
+ * Progress that user has made
+ */
+export interface Progress {
+  // There will be only one progress, but we need a database ID
+  id: string;
+
+  // Whether the user has started the game
+  started: boolean;
+
+  // Reference ID to the current chapter
+  chapterId: string | null;
+
+  // Reference ID to the current dialog
+  dialogId: string | null;
+}
+
+/**
  * Some thread or episode of the novel
  */
 export interface Chapter {

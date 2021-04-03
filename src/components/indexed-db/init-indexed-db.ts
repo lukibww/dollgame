@@ -1,25 +1,60 @@
 import { chapters, choices, dialogs } from "../../story/data";
 import {
+  progressStoreName,
   chapterStoreName,
   choiceStoreName,
   dialogStoreName,
   chapterIndexName,
   dialogIndexName,
 } from "../../constans";
+import { Progress } from "../../story/spec";
+
+const defaultProgress: Progress = {
+  id: "788a5143-7ccd-4b33-86c2-cce9601b6135",
+  started: false,
+  chapterId: null,
+  dialogId: null,
+};
+
+const objectStoreOptions: IDBObjectStoreParameters = {
+  keyPath: "id",
+};
+
+const indexOptions: IDBIndexParameters = {
+  unique: false,
+};
 
 const initIndexedDB = (database: IDBDatabase) => {
-  const chapterStore = database.createObjectStore(chapterStoreName, {
-    keyPath: "id",
-  });
-  const dialogStore = database.createObjectStore(dialogStoreName, {
-    keyPath: "id",
-  });
-  const choiceStore = database.createObjectStore(choiceStoreName, {
-    keyPath: "id",
-  });
+  const progressStore = database.createObjectStore(
+    progressStoreName,
+    objectStoreOptions
+  );
+  const chapterStore = database.createObjectStore(
+    chapterStoreName,
+    objectStoreOptions
+  );
+  const dialogStore = database.createObjectStore(
+    dialogStoreName,
+    objectStoreOptions
+  );
+  const choiceStore = database.createObjectStore(
+    choiceStoreName,
+    objectStoreOptions
+  );
 
-  dialogStore.createIndex(chapterIndexName, "chapterId", { unique: false });
-  choiceStore.createIndex(dialogIndexName, "dialogId", { unique: false });
+  dialogStore.createIndex(chapterIndexName, "chapterId", indexOptions);
+  choiceStore.createIndex(dialogIndexName, "dialogId", indexOptions);
+
+  progressStore.createIndex(chapterIndexName, "chapterId", indexOptions);
+  progressStore.createIndex(dialogIndexName, "dialogId", indexOptions);
+
+  progressStore.transaction.oncomplete = () => {
+    const store = database
+      .transaction(progressStoreName, "readwrite")
+      .objectStore(progressStoreName);
+
+    store.add(defaultProgress);
+  };
 
   chapterStore.transaction.oncomplete = () => {
     const store = database
