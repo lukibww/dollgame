@@ -2,29 +2,36 @@ import { createGlobalStyle } from "styled-components";
 
 import SourceSansPro from "../assets/fonts/SourceSansPro.ttf";
 import DancingScript from "../assets/fonts/DancingScript.ttf";
+import Raleway from "../assets/fonts/Raleway.ttf";
 
 const GlobalStyle = createGlobalStyle`
-    @font-face {
-      font-weight: 400;
-      font-family: 'Dancing Script', cursive;
-      src: url(${DancingScript}) format("truetype");
-    }
+  @font-face {
+    font-weight: 600;
+    font-family: 'Raleway';
+    src: url(${Raleway}) format("truetype");
+  }
+  
+  @font-face {
+    font-weight: 400;
+    font-family: 'Dancing Script';
+    src: url(${DancingScript}) format("truetype");
+  }
 
-    @font-face {
-      font-weight: 400;
-      font-family: 'Source Sans Pro', sans-serif;
-      src: url(${SourceSansPro}) format("truetype");
-    }
+  @font-face {
+    font-weight: 400;
+    font-family: 'Source Sans Pro';
+    src: url(${SourceSansPro}) format("truetype");
+  }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Source Sans Pro', sans-serif;
-    }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Source Sans Pro';
+  }
 `;
 
 export default GlobalStyle;

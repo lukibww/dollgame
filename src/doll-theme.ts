@@ -10,8 +10,9 @@ const dollTheme: DefaultTheme = {
     error: "#8f2c28",
   },
   fonts: {
-    heading: "'Dancing Script', cursive",
-    body: "'Source Sans Pro', sans-serif",
+    heading: "'Dancing Script'",
+    body: "'Source Sans Pro'",
+    button: "'Raleway'",
   },
 };
 
