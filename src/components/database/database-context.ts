@@ -6,13 +6,11 @@ export interface DatabaseIndex<T extends DatabaseRecord> {
   keyPath: string | string[];
   multiEntry: boolean;
   name: string;
-  objectStore: DatabaseStore<T>;
   unique: boolean;
   get: (key: string) => Promise<T>;
 }
 
 export interface DatabaseStore<T extends DatabaseRecord> {
-  exists: (key: string) => Promise<boolean>;
   get: (key: string) => Promise<T>;
   update: (key: string, record: Partial<T>) => Promise<void>;
   insert: (record: T) => Promise<void>;
@@ -30,7 +28,8 @@ export interface DatabaseStore<T extends DatabaseRecord> {
 
 export interface Database {
   createStore: <T extends DatabaseRecord>(
-    name: string
+    name: string,
+    options?: IDBObjectStoreParameters
   ) => Promise<DatabaseStore<T>>;
   getStore: <T extends DatabaseRecord>(
     name: string
