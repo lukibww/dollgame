@@ -7,7 +7,7 @@ const Link = styled.a`
   text-decoration: none;
   padding: 2px;
   font-weight: 600;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.75px;
   border-bottom: 2px solid transparent;
 
   font-family: ${({ theme }) => theme.fonts.button};

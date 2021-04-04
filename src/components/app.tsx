@@ -1,3 +1,5 @@
+import { Switch, Route, Link as WouterLink } from "wouter";
+
 import Container from "./container";
 import Header from "./header";
 import Navigation from "./navigation";
@@ -7,11 +9,31 @@ function App() {
   return (
     <Container>
       <Navigation>
-        <Link href="/project">Projekt</Link>
-        <Link href="/autorzy">Autorzy</Link>
-        <Link href="https://github.com/lukibw/dollgame">Github</Link>
+        <WouterLink href="/">
+          <Link>Strona Główna</Link>
+        </WouterLink>
+        <WouterLink href="/project">
+          <Link>Projekt</Link>
+        </WouterLink>
+        <WouterLink href="/authors">
+          <Link>Autorzy</Link>
+        </WouterLink>
+        <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/lukibw/dollgame"
+        >
+          Github
+        </Link>
       </Navigation>
-      <Header>Lalka</Header>
+      <Switch>
+        <Route path="/">
+          <Header>Lalka</Header>
+        </Route>
+        <Route path="/project">Projekt</Route>
+        <Route path="/authors">Autorzy</Route>
+        <Route>Nie znaleziono strony</Route>
+      </Switch>
     </Container>
   );
 }
