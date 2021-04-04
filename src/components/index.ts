@@ -5,3 +5,6 @@ export * from "./indexed-db";
 
 export { default as Game } from "./game";
 export * from "./game";
+
+export { default as ErrorBoundary } from "./error-boundary";
+export * from "./error-boundary";
