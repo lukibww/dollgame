@@ -1,10 +1,10 @@
 import { createGlobalStyle } from "styled-components";
 
-import SourceSansPro from "../assets/fonts/SourceSansPro.ttf";
-import DancingScript from "../assets/fonts/DancingScript.ttf";
-import Raleway from "../assets/fonts/Raleway.ttf";
+import SourceSansPro from "../../assets/fonts/SourceSansPro.ttf";
+import DancingScript from "../../assets/fonts/DancingScript.ttf";
+import Raleway from "../../assets/fonts/Raleway.ttf";
 
-const GlobalStyle = createGlobalStyle`
+const Global = createGlobalStyle`
   @font-face {
     font-weight: 600;
     font-family: 'Raleway';
@@ -39,4 +39,4 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export default GlobalStyle;
+export default Global;

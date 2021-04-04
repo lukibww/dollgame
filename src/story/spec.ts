@@ -1,5 +1,3 @@
-import { start, end, failure } from "../constans";
-
 /**
  * Progress that user has made
  */
@@ -81,4 +79,4 @@ export interface Choice {
  * Action performed when user makes a choice
  * Dialog ID, start, end, or failure of the chapter
  */
-export type ChoiceAction = string | typeof start | typeof end | typeof failure;
+export type ChoiceAction = string | "start" | "end" | "failure";
