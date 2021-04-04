@@ -1,12 +1,15 @@
 import ReactDOM from "react-dom";
-import { App, IndexedDB, ErrorBoundary } from "./components";
-import "./styles/index.scss";
+import { Fragment } from "react";
+import { App, IndexedDB, ErrorBoundary, GlobalStyle } from "./components";
 
 ReactDOM.render(
-  <ErrorBoundary>
-    <IndexedDB>
-      <App />
-    </IndexedDB>
-  </ErrorBoundary>,
+  <Fragment>
+    <GlobalStyle />
+    <ErrorBoundary>
+      <IndexedDB>
+        <App />
+      </IndexedDB>
+    </ErrorBoundary>
+  </Fragment>,
   document.getElementById("root")
 );

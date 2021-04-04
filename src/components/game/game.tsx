@@ -1,5 +1,5 @@
 import { ReactNode, useMemo } from "react";
-import GameContext, { GameContextValue } from "./game-context";
+import GameContext from "./game-context";
 
 export interface GameProps {
   children?: ReactNode;
@@ -7,12 +7,14 @@ export interface GameProps {
 }
 
 function Game({ children, database }: GameProps) {
-  const contextValue = useMemo<GameContextValue>(() => {
+  const contextValue = useMemo(() => {
     return {};
   }, []);
 
   return (
-    <GameContext.Provider value={contextValue}>{children}</GameContext.Provider>
+    <GameContext.Provider value={contextValue as any}>
+      {children}
+    </GameContext.Provider>
   );
 }
 

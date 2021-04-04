@@ -8,3 +8,5 @@ export * from "./game";
 
 export { default as ErrorBoundary } from "./error-boundary";
 export * from "./error-boundary";
+
+export { default as GlobalStyle } from "./global-style";
