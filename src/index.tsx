@@ -1,15 +1,16 @@
 import ReactDOM from "react-dom";
-import { Fragment } from "react";
+import { ThemeProvider } from "styled-components";
 import { App, IndexedDB, ErrorBoundary, GlobalStyle } from "./components";
+import dollTheme from "./doll-theme";
 
 ReactDOM.render(
-  <Fragment>
+  <ThemeProvider theme={dollTheme}>
     <GlobalStyle />
     <ErrorBoundary>
       <IndexedDB>
         <App />
       </IndexedDB>
     </ErrorBoundary>
-  </Fragment>,
+  </ThemeProvider>,
   document.getElementById("root")
 );
