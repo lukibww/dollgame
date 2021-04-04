@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-const Link = styled.a`
+export interface LinkProps {
+  active?: boolean;
+}
+
+const Link = styled.a<LinkProps>`
   display: inline-block;
   font-size: 1.125rem;
   cursor: pointer;
@@ -8,13 +12,19 @@ const Link = styled.a`
   padding: 2px;
   font-weight: 600;
   letter-spacing: 0.75px;
-  border-bottom: 2px solid transparent;
+  outline: 0 none;
+  transition: 0.1s border-bottom-color ease;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: ${({ active, theme }) =>
+    active ? theme.colors.text : "transparent"};
 
   font-family: ${({ theme }) => theme.fonts.button};
   color: ${({ theme }) => theme.colors.text};
 
-  &:hover {
-    border-bottom: 2px solid ${({ theme }) => theme.colors.text};
+  &:hover,
+  &:focus {
+    border-bottom-color: ${({ theme }) => theme.colors.text};
   }
 `;
 

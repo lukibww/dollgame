@@ -32,6 +32,11 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Source Sans Pro';
   }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 `;
 
 export default GlobalStyle;

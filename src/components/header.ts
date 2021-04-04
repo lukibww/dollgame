@@ -1,9 +1,12 @@
 import styled from "styled-components";
 
-const Header = styled.h1`
+export interface HeaderProps {
+  small?: boolean;
+}
+
+const Header = styled.h1<HeaderProps>`
   display: block;
-  padding: 24px;
-  font-size: 10rem;
+  font-size: ${({ small }) => (small ? 5 : 10)}rem;
   line-height: 1.2;
   font-weight: 400;
   letter-spacing: 3px;
