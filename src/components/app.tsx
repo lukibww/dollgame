@@ -2,7 +2,7 @@ import { Switch, Route } from "wouter";
 import { DefaultTheme, ThemeProvider } from "styled-components";
 import { Container, Global } from "./styled";
 import { Authors, Default, Game, Home, Project } from "./routes";
-import Nav from "./nav";
+import { Nav } from "./nav";
 
 const theme: DefaultTheme = {
   colors: {
@@ -20,7 +20,7 @@ const theme: DefaultTheme = {
   },
 };
 
-function App() {
+export function App() {
   return (
     <ThemeProvider theme={theme}>
       <Global />
@@ -47,5 +47,3 @@ function App() {
     </ThemeProvider>
   );
 }
-
-export default App;

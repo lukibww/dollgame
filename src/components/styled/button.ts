@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Button = styled.button`
+export const Button = styled.button`
   padding: 4px;
   text-transform: uppercase;
   padding: 8px 16px;
@@ -24,5 +24,3 @@ const Button = styled.button`
     background-color: ${({ theme }) => theme.colors.text};
   }
 `;
-
-export default Button;

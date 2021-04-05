@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Header, Paragraph } from "../styled";
 
-function Project() {
+export function Project() {
   return (
     <Fragment>
       <Header small>Projekt</Header>
@@ -9,5 +9,3 @@ function Project() {
     </Fragment>
   );
 }
-
-export default Project;

@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export interface ParagraphProps {
+interface ParagraphProps {
   gutter?: boolean;
 }
 
-const Paragraph = styled.p<ParagraphProps>`
+export const Paragraph = styled.p<ParagraphProps>`
   font-size: 2.125rem;
   letter-spacing: 0.5px;
   line-height: 1.5;
@@ -15,5 +15,3 @@ const Paragraph = styled.p<ParagraphProps>`
   color: ${({ theme }) => theme.colors.text};
   font-family: ${({ theme }) => theme.fonts.body};
 `;
-
-export default Paragraph;

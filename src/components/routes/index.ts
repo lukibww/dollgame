@@ -1,5 +1,5 @@
-export { default as Authors } from "./authors";
-export { default as Default } from "./default";
-export { default as Game } from "./game";
-export { default as Home } from "./home";
-export { default as Project } from "./project";
+export { Authors } from "./authors";
+export { Default } from "./default";
+export { Game } from "./game";
+export { Home } from "./home";
+export { Project } from "./project";

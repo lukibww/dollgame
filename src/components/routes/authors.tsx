@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Header, Paragraph } from "../styled";
 
-function Authors() {
+export function Authors() {
   return (
     <Fragment>
       <Header small>Autorzy</Header>
@@ -9,5 +9,3 @@ function Authors() {
     </Fragment>
   );
 }
-
-export default Authors;

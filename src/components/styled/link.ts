@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export interface LinkProps {
+interface LinkProps {
   active?: boolean;
 }
 
-const Link = styled.a<LinkProps>`
+export const Link = styled.a<LinkProps>`
   display: inline-block;
   font-size: 1.125rem;
   cursor: pointer;
@@ -27,5 +27,3 @@ const Link = styled.a<LinkProps>`
     border-bottom-color: ${({ theme }) => theme.colors.text};
   }
 `;
-
-export default Link;

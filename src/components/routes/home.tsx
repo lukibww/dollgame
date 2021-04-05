@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Link as WouterLink } from "wouter";
 import { Header, Paragraph, Button } from "../styled";
 
-function Home() {
+export function Home() {
   return (
     <Fragment>
       <Header>Lalka</Header>
@@ -16,5 +16,3 @@ function Home() {
     </Fragment>
   );
 }
-
-export default Home;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Container = styled.div`
+export const Container = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -10,5 +10,3 @@ const Container = styled.div`
   height: 100vh;
   background-color: ${({ theme }) => theme.colors.background};
 `;
-
-export default Container;

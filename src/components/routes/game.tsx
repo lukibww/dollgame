@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Header, Paragraph } from "../styled";
 
-function Game() {
+export function Game() {
   return (
     <Fragment>
       <Header small>Gra</Header>
@@ -9,5 +9,3 @@ function Game() {
     </Fragment>
   );
 }
-
-export default Game;

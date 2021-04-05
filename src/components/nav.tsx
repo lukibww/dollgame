@@ -1,7 +1,7 @@
 import { Link as WouterLink, useLocation } from "wouter";
 import { Navigation, Link } from "./styled";
 
-function Nav() {
+export function Nav() {
   const [location] = useLocation();
 
   return (
@@ -28,5 +28,3 @@ function Nav() {
     </Navigation>
   );
 }
-
-export default Nav;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Navigation = styled.nav`
+export const Navigation = styled.nav`
   position: absolute;
   top: 0;
   left: 0;
@@ -16,5 +16,3 @@ const Navigation = styled.nav`
     margin-left: 24px;
   }
 `;
-
-export default Navigation;

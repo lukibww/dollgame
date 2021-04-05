@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Paragraph } from "../styled";
 
-function DefaultPage() {
+export function Default() {
   return (
     <Fragment>
       <Paragraph>Nie znaleziono strony</Paragraph>
@@ -9,5 +9,3 @@ function DefaultPage() {
     </Fragment>
   );
 }
-
-export default DefaultPage;
