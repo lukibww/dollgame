@@ -1,30 +1,58 @@
-import { Link as WouterLink, useLocation } from "wouter";
-import { Navigation, Link } from "./styled";
+import { Navigation, IconButton, Menu, Absolute } from "./styled";
+import { ReactComponent as MenuIcon } from "../assets/icons/menu.svg";
+import { NavLinks } from "./nav-links";
+import { useMediaQuery } from "../utils";
+import { Fragment, useEffect, useRef, useState } from "react";
+import { useLocation } from "wouter";
 
 export function Nav() {
+  const showMenu = useMediaQuery("(max-width: 750px)");
+  const menuRef = useRef<HTMLElement | null>(null);
   const [location] = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location]);
+
+  useEffect(() => {
+    const handleClick = (event: globalThis.MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+
+    if (menuOpen) {
+      window.addEventListener("click", handleClick);
+    }
+
+    return () => {
+      window.removeEventListener("click", handleClick);
+    };
+  }, [menuOpen]);
+
+  if (showMenu) {
+    const handleMenuClick = () => {
+      setMenuOpen(true);
+    };
+
+    return (
+      <Fragment>
+        <Absolute right={24} top={18}>
+          <IconButton onClick={handleMenuClick}>
+            <MenuIcon />
+          </IconButton>
+        </Absolute>
+        <Menu ref={menuRef} expanded={menuOpen} count={5}>
+          <NavLinks />
+        </Menu>
+      </Fragment>
+    );
+  }
 
   return (
     <Navigation>
-      <WouterLink href="/">
-        <Link active={location === "/"}>Strona Główna</Link>
-      </WouterLink>
-      <WouterLink href="/play">
-        <Link active={location === "/play"}>Gra</Link>
-      </WouterLink>
-      <WouterLink href="/project">
-        <Link active={location === "/project"}>Projekt</Link>
-      </WouterLink>
-      <WouterLink href="/authors">
-        <Link active={location === "/authors"}>Autorzy</Link>
-      </WouterLink>
-      <Link
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://github.com/lukibw/dollgame"
-      >
-        Github
-      </Link>
+      <NavLinks />
     </Navigation>
   );
 }
