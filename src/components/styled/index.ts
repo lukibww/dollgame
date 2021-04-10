@@ -8,3 +8,7 @@ export { Paragraph } from "./paragraph";
 export { IconButton } from "./icon-button";
 export { Menu } from "./menu";
 export { Absolute } from "./absolute";
+export { Chapter } from "./chapter";
+export { ChapterGroup } from "./chapter-group";
+export { ChapterLabel } from "./chapter-label";
+export { ChapterWindow } from "./chapter-window";
