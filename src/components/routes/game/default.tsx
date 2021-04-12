@@ -1,4 +1,4 @@
-import { NotFound } from "../../not-found";
+import { NotFound } from "../../general";
 
 export function GameDefault() {
   return <NotFound />;

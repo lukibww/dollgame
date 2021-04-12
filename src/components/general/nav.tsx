@@ -1,9 +1,9 @@
-import { Navigation, IconButton, Menu, Absolute } from "./styled";
-import { ReactComponent as MenuIcon } from "../assets/icons/menu.svg";
-import { NavLinks } from "./nav-links";
-import { useMediaQuery } from "../utils";
-import { Fragment, useEffect, useRef, useState } from "react";
 import { useLocation } from "wouter";
+import { Fragment, useEffect, useRef, useState } from "react";
+import { ReactComponent as MenuIcon } from "../../assets/icons/menu.svg";
+import { Navigation, IconButton, Menu, Absolute } from "../styled";
+import { useMediaQuery } from "../../utils";
+import { NavLinks } from "./nav-links";
 
 export function Nav() {
   const showMenu = useMediaQuery("(max-width: 750px)");

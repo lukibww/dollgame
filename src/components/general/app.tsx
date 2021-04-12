@@ -1,7 +1,7 @@
 import { DefaultTheme, ThemeProvider } from "styled-components";
-import { Container, Global } from "./styled";
+import { Container, Global } from "../styled";
+import { Routes } from "../routes";
 import { Nav } from "./nav";
-import { Routes } from "./routes";
 
 const theme: DefaultTheme = {
   colors: {

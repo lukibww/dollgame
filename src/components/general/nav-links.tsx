@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { useLocation, Link as WouterLink } from "wouter";
-import { Link } from "./styled";
+import { Link } from "../styled";
 
 export function NavLinks() {
   const [location] = useLocation();

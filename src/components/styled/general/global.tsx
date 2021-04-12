@@ -1,8 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
-import SourceSansPro from "../../assets/fonts/SourceSansPro.ttf";
-import DancingScript from "../../assets/fonts/DancingScript.ttf";
-import Raleway from "../../assets/fonts/Raleway.ttf";
+import SourceSansPro from "../../../assets/fonts/SourceSansPro.ttf";
+import DancingScript from "../../../assets/fonts/DancingScript.ttf";
+import Raleway from "../../../assets/fonts/Raleway.ttf";
 
 export const Global = createGlobalStyle`
   @font-face {

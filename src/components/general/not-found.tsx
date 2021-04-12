@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import { Paragraph } from "./styled";
+import { Paragraph } from "../styled";
 
 export function NotFound() {
   return (
