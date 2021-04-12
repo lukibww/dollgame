@@ -12,6 +12,8 @@ export const Chapter = styled.div<ChapterProps>`
   align-items: center;
   cursor: pointer;
   outline: 0 none;
+  transition: 0.1s transform ease;
+  transform: scale(1);
 
   ${ChapterLabel} {
     color: ${({ theme, selected }) =>
@@ -21,6 +23,11 @@ export const Chapter = styled.div<ChapterProps>`
   ${ChapterWindow} {
     border-color: ${({ theme, selected }) =>
       selected ? theme.colors.primary : theme.colors.text};
+  }
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
   }
 
   &:hover ${ChapterLabel}, &:focus ${ChapterLabel} {

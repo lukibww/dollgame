@@ -9,14 +9,18 @@ export const Container = styled.div`
   width: 100%;
   min-height: 100vh;
   overflow: auto;
-  padding: 60px;
+  padding: 120px 60px;
   background-color: ${({ theme }) => theme.colors.background};
 
   @media (max-width: 1000px) {
-    padding: 48px;
+    padding: 96px 48px;
   }
 
   @media (max-width: 500px) {
-    padding: 36px;
+    padding: 72px 36px;
+  }
+
+  @media (max-width: 360px) {
+    padding: 48px 24px;
   }
 `;
