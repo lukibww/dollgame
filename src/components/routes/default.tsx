@@ -1,11 +1,5 @@
-import { Fragment } from "react";
-import { Paragraph } from "../styled";
+import { NotFound } from "../not-found";
 
 export function Default() {
-  return (
-    <Fragment>
-      <Paragraph>Nie znaleziono strony</Paragraph>
-      <Paragraph>Upewnij się, czy podałeś właściwy adres URL</Paragraph>
-    </Fragment>
-  );
+  return <NotFound />;
 }

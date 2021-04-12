@@ -1,8 +1,7 @@
-import { Switch, Route } from "wouter";
 import { DefaultTheme, ThemeProvider } from "styled-components";
 import { Container, Global } from "./styled";
-import { Authors, Default, Game, Home, Project } from "./routes";
 import { Nav } from "./nav";
+import { Routes } from "./routes";
 
 const theme: DefaultTheme = {
   colors: {
@@ -26,23 +25,7 @@ export function App() {
       <Global />
       <Container>
         <Nav />
-        <Switch>
-          <Route path="/">
-            <Home />
-          </Route>
-          <Route path="/play">
-            <Game />
-          </Route>
-          <Route path="/project">
-            <Project />
-          </Route>
-          <Route path="/authors">
-            <Authors />
-          </Route>
-          <Route>
-            <Default />
-          </Route>
-        </Switch>
+        <Routes />
       </Container>
     </ThemeProvider>
   );

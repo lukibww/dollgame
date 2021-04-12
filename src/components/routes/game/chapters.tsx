@@ -5,10 +5,10 @@ import {
   ChapterLabel,
   ChapterWindow,
   Header,
-} from "../styled";
-import { chapters } from "../../story/data";
+} from "../../styled";
+import { chapters } from "../../../story/data";
 
-export function Game() {
+export function GameChapters() {
   return (
     <Fragment>
       <Header small gutter>

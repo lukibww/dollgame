@@ -10,8 +10,8 @@ export function NavLinks() {
       <WouterLink href="/">
         <Link active={location === "/"}>Strona Główna</Link>
       </WouterLink>
-      <WouterLink href="/play">
-        <Link active={location === "/play"}>Gra</Link>
+      <WouterLink href="/game">
+        <Link active={location === "/game"}>Gra</Link>
       </WouterLink>
       <WouterLink href="/project">
         <Link active={location === "/project"}>Projekt</Link>
