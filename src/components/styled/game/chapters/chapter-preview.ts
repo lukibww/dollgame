@@ -2,11 +2,11 @@ import styled from "styled-components";
 import { ChapterLabel } from "./chapter-label";
 import { ChapterWindow } from "./chapter-window";
 
-export interface ChapterProps {
+export interface ChapterPreviewProps {
   selected?: boolean;
 }
 
-export const Chapter = styled.div<ChapterProps>`
+export const ChapterPreview = styled.div<ChapterPreviewProps>`
   display: flex;
   flex-direction: column;
   align-items: center;

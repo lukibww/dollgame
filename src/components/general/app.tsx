@@ -11,6 +11,7 @@ const theme: DefaultTheme = {
     primary: "#33475b",
     secondary: "#337045",
     error: "#8f2c28",
+    label: "#613a42",
   },
   fonts: {
     heading: "'Dancing Script'",

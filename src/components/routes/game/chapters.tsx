@@ -1,25 +1,38 @@
 import { Fragment } from "react";
 import {
-  Chapter,
+  ChapterPreview,
   ChapterGroup,
   ChapterLabel,
   ChapterWindow,
   Header,
 } from "../../styled";
-import { chapters } from "../../../story/data";
+import * as data from "../../../story/data";
+import { useLocation } from "wouter";
 
 export function GameChapters() {
+  const [, setLocation] = useLocation();
+
+  const handleChapterClick = (id: number) => () => {
+    setLocation(`/${id}`);
+  };
+
   return (
     <Fragment>
       <Header small gutter>
         Gra
       </Header>
       <ChapterGroup>
-        {chapters.map(({ id, name }, index) => (
-          <Chapter role="button" tabIndex={0} key={id} selected={index === 0}>
+        {data.chapters.map(({ id, name, image }, index) => (
+          <ChapterPreview
+            role="button"
+            tabIndex={0}
+            key={id}
+            selected={index === 0}
+            onClick={handleChapterClick(id)}
+          >
             <ChapterLabel>{name}</ChapterLabel>
-            <ChapterWindow />
-          </Chapter>
+            <ChapterWindow background={image} />
+          </ChapterPreview>
         ))}
       </ChapterGroup>
     </Fragment>

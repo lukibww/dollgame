@@ -2,9 +2,6 @@
  * Progress that user has made
  */
 export interface Progress {
-  // There will be only one progress, but we need a database ID
-  id: string;
-
   // Whether the user has started the game
   started: boolean;
 
@@ -20,13 +17,13 @@ export interface Progress {
  */
 export interface Chapter {
   // Unique chapter ID
-  id: string;
+  id: number;
 
   // Name of the chapter. Can be taken from the novel
   name: string;
 
   // Previev of what will happen in the chapter (optional)
-  description?: string;
+  description: string;
 
   // Path to the image source (optional)
   image?: string;
@@ -40,7 +37,7 @@ export interface Chapter {
  */
 export interface Dialog {
   // Unique dialog ID
-  id: string;
+  id: number;
 
   // Label representing the dialog (optional)
   label?: string;
@@ -52,7 +49,7 @@ export interface Dialog {
   background?: string;
 
   // Reference ID to the chapter
-  chapterId: string;
+  chapterId: number;
 }
 
 /**
@@ -60,7 +57,7 @@ export interface Dialog {
  */
 export interface Choice {
   // Unique choice ID
-  id: string;
+  id: number;
 
   // Text representing the choice
   text: string;
@@ -72,7 +69,7 @@ export interface Choice {
   next: ChoiceAction;
 
   // Reference ID to the dialog
-  dialogId: string;
+  dialogId: number;
 }
 
 /**

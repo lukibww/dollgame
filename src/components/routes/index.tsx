@@ -12,7 +12,7 @@ export function Routes() {
         <Route path="/">
           <Home />
         </Route>
-        <Route path="/game">
+        <Route path="/game/:rest*">
           <Game />
         </Route>
         <Route path="/project">
