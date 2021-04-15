@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { DefaultParams, Redirect } from "wouter";
+import { DefaultParams, Link as WouterLink } from "wouter";
 import {
   Header,
   Paragraph,
@@ -7,6 +7,7 @@ import {
   ChapterSection,
   Button,
 } from "../../styled";
+import { NotFoundRedirect } from "../not-found-redirect";
 import * as data from "../../../story/data";
 
 export interface GameChapterParams extends DefaultParams {
@@ -19,7 +20,7 @@ interface GameChapterProps {
 
 export function GameChapter({ params }: GameChapterProps) {
   const chapterId = useMemo(() => {
-    const parsed = parseInt(params.chapter);
+    const parsed = parseInt(`${+params.chapter}`);
 
     if (isFinite(parsed)) {
       return parsed;
@@ -32,7 +33,21 @@ export function GameChapter({ params }: GameChapterProps) {
     return data.chapters.find((chapter) => chapter.id === chapterId);
   }, [chapterId]);
 
-  if (!chapter) return <Redirect href="/not-found" />;
+  const href = useMemo(() => {
+    const dialogs = data.dialogs.filter(
+      (dialog) => dialog.chapterId === chapterId
+    );
+
+    const dialogId = dialogs.sort((a, b) => a.id - b.id)[0]?.id;
+
+    if (!dialogId) {
+      return null;
+    }
+
+    return `/game/${chapterId}/${dialogId}`;
+  }, [chapterId]);
+
+  if (!chapter || !href) return <NotFoundRedirect />;
 
   return (
     <ChapterPage>
@@ -41,7 +56,9 @@ export function GameChapter({ params }: GameChapterProps) {
           {chapter.name}
         </Header>
         <Paragraph gutter>{chapter.description}</Paragraph>
-        <Button>Rozpocznij</Button>
+        <WouterLink href={href}>
+          <Button as="a">Rozpocznij</Button>
+        </WouterLink>
       </ChapterSection>
     </ChapterPage>
   );

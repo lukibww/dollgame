@@ -13,7 +13,7 @@ export function GameChapters() {
   const [, setLocation] = useLocation();
 
   const handleChapterClick = (id: number) => () => {
-    setLocation(`/${id}`);
+    setLocation(`/game/${id}`);
   };
 
   return (

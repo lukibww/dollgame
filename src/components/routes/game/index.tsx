@@ -1,22 +1,24 @@
-import { Route, Router, Switch } from "wouter";
+import { Route, Switch } from "wouter";
 import { GameChapters } from "./chapters";
-import { GameDefault } from "./default";
 import { GameChapter, GameChapterParams } from "./chapter";
+import { GameDialog, GameDialogParams } from "./dialog";
+import { NotFoundRedirect } from "../not-found-redirect";
 
 export function Game() {
   return (
-    <Router base="/game">
-      <Switch>
-        <Route path="/">
-          <GameChapters />
-        </Route>
-        <Route<GameChapterParams> path="/:chapter">
-          {(params) => <GameChapter params={params} />}
-        </Route>
-        <Route>
-          <GameDefault />
-        </Route>
-      </Switch>
-    </Router>
+    <Switch>
+      <Route path="/game">
+        <GameChapters />
+      </Route>
+      <Route<GameChapterParams> path="/game/:chapter">
+        {(params) => <GameChapter params={params} />}
+      </Route>
+      <Route<GameDialogParams> path="/game/:chapter/:dialog">
+        {(params) => <GameDialog params={params} />}
+      </Route>
+      <Route>
+        <NotFoundRedirect />
+      </Route>
+    </Switch>
   );
 }
