@@ -22,12 +22,11 @@ export function GameChapters() {
         Gra
       </Header>
       <ChapterGroup>
-        {data.chapters.map(({ id, name, image }, index) => (
+        {data.chapters.map(({ id, name, image }) => (
           <ChapterPreview
             role="button"
             tabIndex={0}
             key={id}
-            selected={index === 0}
             onClick={handleChapterClick(id)}
           >
             <ChapterLabel>{name}</ChapterLabel>

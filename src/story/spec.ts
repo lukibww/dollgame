@@ -48,6 +48,9 @@ export interface Dialog {
   // Path to the background source (optional)
   background?: string;
 
+  // If not default we will use different view (optional)
+  type: "default" | "success" | "failure";
+
   // Reference ID to the chapter
   chapterId: number;
 }
@@ -62,18 +65,9 @@ export interface Choice {
   // Text representing the choice
   text: string;
 
-  // Reference to the previous dialog
-  prev: ChoiceAction;
-
   // Reference to the next dialog
-  next: ChoiceAction;
+  next: number;
 
   // Reference ID to the dialog
   dialogId: number;
 }
-
-/**
- * Action performed when user makes a choice
- * Dialog ID, start, end, or failure of the chapter
- */
-export type ChoiceAction = string | "start" | "end" | "failure";
