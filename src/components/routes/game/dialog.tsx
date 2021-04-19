@@ -95,7 +95,7 @@ export function GameDialog({ params }: GameDialogProps) {
       ) : (
         <DialogSection>
           {choices.map((choice) => (
-            <DialogChoice onClick={handleChoice(choice)}>
+            <DialogChoice key={choice.id} onClick={handleChoice(choice)}>
               {choice.text}
             </DialogChoice>
           ))}
