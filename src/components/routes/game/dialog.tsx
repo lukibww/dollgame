@@ -10,6 +10,9 @@ import {
   DialogText,
   DialogResume,
 } from "../../styled";
+import click from "../../../assets/audio/click.wav";
+import { genHash } from "../../../utils";
+import { useMusic } from "../../general";
 import * as data from "../../../story/data";
 import * as Spec from "../../../story/spec";
 
@@ -23,6 +26,7 @@ interface GameDialogProps {
 }
 
 export function GameDialog({ params }: GameDialogProps) {
+  const music = useMusic();
   const [, setLocation] = useLocation();
 
   const chapterId = useMemo(() => {
@@ -62,6 +66,8 @@ export function GameDialog({ params }: GameDialogProps) {
   }, [dialog]);
 
   const handleChoice = (choice: Spec.Choice) => () => {
+    music?.add({ src: click, key: genHash() });
+
     const { next } = choice;
 
     const dialogId = data.dialogs.find(

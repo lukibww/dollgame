@@ -2,8 +2,8 @@ import { DefaultTheme, ThemeProvider } from "styled-components";
 import { Container, Global } from "../styled";
 import { Routes } from "../routes";
 import { Nav } from "./nav";
-import { Music } from "./music";
 import { Sentiniel } from "./sentiniel";
+import { MusicProvider } from "./music";
 
 const theme: DefaultTheme = {
   colors: {
@@ -25,13 +25,14 @@ const theme: DefaultTheme = {
 export function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Global />
       <Sentiniel />
-      <Music />
-      <Container>
-        <Nav />
-        <Routes />
-      </Container>
+      <MusicProvider>
+        <Global />
+        <Container>
+          <Nav />
+          <Routes />
+        </Container>
+      </MusicProvider>
     </ThemeProvider>
   );
 }
