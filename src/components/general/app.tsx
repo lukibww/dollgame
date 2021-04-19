@@ -2,6 +2,7 @@ import { DefaultTheme, ThemeProvider } from "styled-components";
 import { Container, Global } from "../styled";
 import { Routes } from "../routes";
 import { Nav } from "./nav";
+import { Music } from "./music";
 
 const theme: DefaultTheme = {
   colors: {
@@ -24,6 +25,7 @@ export function App() {
   return (
     <ThemeProvider theme={theme}>
       <Global />
+      <Music />
       <Container>
         <Nav />
         <Routes />

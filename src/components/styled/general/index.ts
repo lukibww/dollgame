@@ -1,4 +1,5 @@
 export { Button } from "./button";
+export { Audio } from "./audio";
 export { Container } from "./container";
 export { Global } from "./global";
 export { Header } from "./header";
