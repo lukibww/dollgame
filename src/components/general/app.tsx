@@ -3,6 +3,7 @@ import { Container, Global } from "../styled";
 import { Routes } from "../routes";
 import { Nav } from "./nav";
 import { Music } from "./music";
+import { Sentiniel } from "./sentiniel";
 
 const theme: DefaultTheme = {
   colors: {
@@ -25,6 +26,7 @@ export function App() {
   return (
     <ThemeProvider theme={theme}>
       <Global />
+      <Sentiniel />
       <Music />
       <Container>
         <Nav />
