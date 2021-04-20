@@ -29,25 +29,8 @@ export function GameDialog({ params }: GameDialogProps) {
   const music = useMusic();
   const [, setLocation] = useLocation();
 
-  const chapterId = useMemo(() => {
-    const parsed = parseInt(params.chapter);
-
-    if (isFinite(parsed)) {
-      return parsed;
-    }
-
-    return -1;
-  }, [params]);
-
-  const dialogId = useMemo(() => {
-    const parsed = parseInt(params.dialog);
-
-    if (isFinite(parsed)) {
-      return parsed;
-    }
-
-    return -1;
-  }, [params]);
+  const chapterId = params.chapter;
+  const dialogId = params.dialog;
 
   const dialog = useMemo(() => {
     return data.dialogs.find((dialog) => dialog.id === dialogId) || null;
@@ -100,11 +83,13 @@ export function GameDialog({ params }: GameDialogProps) {
         </DialogResume>
       ) : (
         <DialogSection>
-          {choices.map((choice) => (
-            <DialogChoice key={choice.id} onClick={handleChoice(choice)}>
-              {choice.text}
-            </DialogChoice>
-          ))}
+          {choices
+            .sort((a, b) => a.index - b.index)
+            .map((choice) => (
+              <DialogChoice key={choice.id} onClick={handleChoice(choice)}>
+                {choice.text}
+              </DialogChoice>
+            ))}
         </DialogSection>
       )}
     </Dialog>

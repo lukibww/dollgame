@@ -4,6 +4,7 @@ import { Routes } from "../routes";
 import { Nav } from "./nav";
 import { Sentiniel } from "./sentiniel";
 import { MusicProvider } from "./music";
+import { ProgressProvider } from "./progress";
 
 const theme: DefaultTheme = {
   colors: {
@@ -26,13 +27,15 @@ export function App() {
   return (
     <ThemeProvider theme={theme}>
       <Sentiniel />
-      <MusicProvider>
-        <Global />
-        <Container>
-          <Nav />
-          <Routes />
-        </Container>
-      </MusicProvider>
+      <ProgressProvider>
+        <MusicProvider>
+          <Global />
+          <Container>
+            <Nav />
+            <Routes />
+          </Container>
+        </MusicProvider>
+      </ProgressProvider>
     </ThemeProvider>
   );
 }

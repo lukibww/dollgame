@@ -12,7 +12,7 @@ import { useLocation } from "wouter";
 export function GameChapters() {
   const [, setLocation] = useLocation();
 
-  const handleChapterClick = (id: number) => () => {
+  const handleChapterClick = (id: string) => () => {
     setLocation(`/game/${id}`);
   };
 
@@ -22,17 +22,19 @@ export function GameChapters() {
         Gra
       </Header>
       <ChapterGroup>
-        {data.chapters.map(({ id, name, image }) => (
-          <ChapterPreview
-            role="button"
-            tabIndex={0}
-            key={id}
-            onClick={handleChapterClick(id)}
-          >
-            <ChapterLabel>{name}</ChapterLabel>
-            <ChapterWindow background={image} />
-          </ChapterPreview>
-        ))}
+        {data.chapters
+          .sort((a, b) => a.index - b.index)
+          .map(({ id, name, image }) => (
+            <ChapterPreview
+              role="button"
+              tabIndex={0}
+              key={id}
+              onClick={handleChapterClick(id)}
+            >
+              <ChapterLabel>{name}</ChapterLabel>
+              <ChapterWindow background={image} />
+            </ChapterPreview>
+          ))}
       </ChapterGroup>
     </Fragment>
   );

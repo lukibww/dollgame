@@ -20,13 +20,7 @@ interface GameChapterProps {
 
 export function GameChapter({ params }: GameChapterProps) {
   const chapterId = useMemo(() => {
-    const parsed = parseInt(`${+params.chapter}`);
-
-    if (isFinite(parsed)) {
-      return parsed;
-    }
-
-    return -1;
+    return params.chapter;
   }, [params]);
 
   const chapter = useMemo(() => {
@@ -38,7 +32,7 @@ export function GameChapter({ params }: GameChapterProps) {
       (dialog) => dialog.chapterId === chapterId
     );
 
-    const dialogId = dialogs.sort((a, b) => a.id - b.id)[0]?.id;
+    const dialogId = dialogs.sort((a, b) => a.index - b.index)[0]?.id;
 
     if (!dialogId) {
       return null;

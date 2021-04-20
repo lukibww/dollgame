@@ -19,6 +19,9 @@ export interface Chapter {
   // Unique chapter ID
   id: string;
 
+  // Chapter index used for ordering
+  index: number;
+
   // Name of the chapter. Can be taken from the novel
   name: string;
 
@@ -37,7 +40,10 @@ export interface Chapter {
  */
 export interface Dialog {
   // Unique dialog ID
-  id: number;
+  id: string;
+
+  // Dialog index used for ordering
+  index: number;
 
   // Label representing the dialog (optional)
   label?: string;
@@ -60,14 +66,17 @@ export interface Dialog {
  */
 export interface Choice {
   // Unique choice ID
-  id: number;
+  id: string;
+
+  // Choice index used for ordering
+  index: number;
 
   // Text representing the choice
   text: string;
 
   // Reference to the next dialog
-  next: number;
+  next: string;
 
   // Reference ID to the dialog
-  dialogId: number;
+  dialogId: string;
 }
