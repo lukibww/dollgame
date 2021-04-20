@@ -8,7 +8,7 @@ import { Chapter, Choice, Dialog } from "./spec";
 
 export const chapters: Chapter[] = [
   {
-    id: 1,
+    id: "73cf4f8a-00c9-4b8f-b66a-8f6a18d825cb",
     name: "Vivamus sodales",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec egestas est consectetur ex vestibulum, nec dignissim justo congue.",
@@ -18,7 +18,7 @@ export const chapters: Chapter[] = [
 export const dialogs: Dialog[] = [
   {
     id: 1,
-    chapterId: 1,
+    chapterId: "73cf4f8a-00c9-4b8f-b66a-8f6a18d825cb",
     label: "Lorem ipsum dolor sit amet",
     type: "default",
     text:
@@ -26,7 +26,7 @@ export const dialogs: Dialog[] = [
   },
   {
     id: 2,
-    chapterId: 1,
+    chapterId: "73cf4f8a-00c9-4b8f-b66a-8f6a18d825cb",
     label: "Praesent vitae metus porttitor",
     type: "default",
     text:
@@ -34,7 +34,7 @@ export const dialogs: Dialog[] = [
   },
   {
     id: 3,
-    chapterId: 1,
+    chapterId: "73cf4f8a-00c9-4b8f-b66a-8f6a18d825cb",
     label: "Pellentesque facilisis",
     type: "default",
     text:
@@ -42,7 +42,7 @@ export const dialogs: Dialog[] = [
   },
   {
     id: 4,
-    chapterId: 1,
+    chapterId: "73cf4f8a-00c9-4b8f-b66a-8f6a18d825cb",
     label: "Orci varius",
     type: "default",
     text:
@@ -50,7 +50,7 @@ export const dialogs: Dialog[] = [
   },
   {
     id: 5,
-    chapterId: 1,
+    chapterId: "73cf4f8a-00c9-4b8f-b66a-8f6a18d825cb",
     label: "Donec sed dolor",
     type: "default",
     text:
@@ -58,7 +58,7 @@ export const dialogs: Dialog[] = [
   },
   {
     id: 6,
-    chapterId: 1,
+    chapterId: "73cf4f8a-00c9-4b8f-b66a-8f6a18d825cb",
     label: "Donec sed dolor",
     type: "failure",
     text:
@@ -66,7 +66,7 @@ export const dialogs: Dialog[] = [
   },
   {
     id: 7,
-    chapterId: 1,
+    chapterId: "73cf4f8a-00c9-4b8f-b66a-8f6a18d825cb",
     label: "Donec sed dolor",
     type: "success",
     text:

@@ -17,7 +17,7 @@ export interface Progress {
  */
 export interface Chapter {
   // Unique chapter ID
-  id: number;
+  id: string;
 
   // Name of the chapter. Can be taken from the novel
   name: string;
@@ -52,7 +52,7 @@ export interface Dialog {
   type: "default" | "success" | "failure";
 
   // Reference ID to the chapter
-  chapterId: number;
+  chapterId: string;
 }
 
 /**
