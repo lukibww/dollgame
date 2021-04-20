@@ -2,14 +2,22 @@
  * Progress that user has made
  */
 export interface Progress {
-  // Whether the user has started the game
-  started: boolean;
+  // Progress chapters
+  chapters: ProgressChapter[];
+}
+
+/**
+ * Each chapter can have its own progress
+ */
+export interface ProgressChapter {
+  // Unique progress chapter ID. Same as `chapterId`
+  id: string;
 
   // Reference ID to the current chapter
-  chapterId: string | null;
+  chapterId: string;
 
   // Reference ID to the current dialog
-  dialogId: string | null;
+  dialogId: string;
 }
 
 /**
@@ -24,6 +32,9 @@ export interface Chapter {
 
   // Name of the chapter. Can be taken from the novel
   name: string;
+
+  // Slug to display in the url
+  slug: string;
 
   // Previev of what will happen in the chapter (optional)
   description: string;
