@@ -12,8 +12,8 @@ import { useLocation } from "wouter";
 export function GameChapters() {
   const [, setLocation] = useLocation();
 
-  const handleChapterClick = (id: string) => () => {
-    setLocation(`/game/${id}`);
+  const handleChapterClick = (slug: string) => () => {
+    setLocation(`/game/${slug}`);
   };
 
   return (
@@ -24,12 +24,12 @@ export function GameChapters() {
       <ChapterGroup>
         {data.chapters
           .sort((a, b) => a.index - b.index)
-          .map(({ id, name, image }) => (
+          .map(({ id, slug, name, image }) => (
             <ChapterPreview
               role="button"
               tabIndex={0}
               key={id}
-              onClick={handleChapterClick(id)}
+              onClick={handleChapterClick(slug)}
             >
               <ChapterLabel>{name}</ChapterLabel>
               <ChapterWindow background={image} />

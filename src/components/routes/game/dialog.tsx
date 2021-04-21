@@ -29,8 +29,12 @@ export function GameDialog({ params }: GameDialogProps) {
   const music = useMusic();
   const [, setLocation] = useLocation();
 
-  const chapterId = params.chapter;
+  const chapterSlug = params.chapter;
   const dialogId = params.dialog;
+
+  const chapter = useMemo(() => {
+    return data.chapters.find((chapter) => chapter.slug === chapterSlug);
+  }, [chapterSlug]);
 
   const dialog = useMemo(() => {
     return data.dialogs.find((dialog) => dialog.id === dialogId) || null;
@@ -54,11 +58,11 @@ export function GameDialog({ params }: GameDialogProps) {
     const { next } = choice;
 
     const dialogId = data.dialogs.find(
-      (dialog) => dialog.id === next && dialog.chapterId === chapterId
+      (dialog) => dialog.id === next && dialog.chapterId === chapter?.id
     )?.id;
 
     if (dialogId) {
-      setLocation(`/game/${chapterId}/${dialogId}`);
+      setLocation(`/game/${chapterSlug}/${dialogId}`);
     } else {
       setLocation("/not-found");
     }

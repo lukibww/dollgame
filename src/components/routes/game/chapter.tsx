@@ -19,27 +19,29 @@ interface GameChapterProps {
 }
 
 export function GameChapter({ params }: GameChapterProps) {
-  const chapterId = useMemo(() => {
+  const chapterSlug = useMemo(() => {
     return params.chapter;
   }, [params]);
 
   const chapter = useMemo(() => {
-    return data.chapters.find((chapter) => chapter.id === chapterId);
-  }, [chapterId]);
+    return data.chapters.find((chapter) => chapter.slug === chapterSlug);
+  }, [chapterSlug]);
 
   const href = useMemo(() => {
-    const dialogs = data.dialogs.filter(
-      (dialog) => dialog.chapterId === chapterId
-    );
+    if (chapter) {
+      const dialogs = data.dialogs.filter(
+        (dialog) => dialog.chapterId === chapter?.id
+      );
 
-    const dialogId = dialogs.sort((a, b) => a.index - b.index)[0]?.id;
+      const dialogId = dialogs.sort((a, b) => a.index - b.index)[0]?.id;
 
-    if (!dialogId) {
-      return null;
+      if (dialogId) {
+        return `/game/${chapterSlug}/${dialogId}`;
+      }
     }
 
-    return `/game/${chapterId}/${dialogId}`;
-  }, [chapterId]);
+    return null;
+  }, [chapterSlug, chapter]);
 
   if (!chapter || !href) return <NotFoundRedirect />;
 
