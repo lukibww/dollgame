@@ -6,6 +6,11 @@ import { Chapter, Choice, Dialog } from "./spec";
  * start cheating
  */
 
+/**
+ * Plase update this value every time you change anything
+ */
+export const version = 1;
+
 export const chapters: Chapter[] = [
   {
     id: "73cf4f8a-00c9-4b8f-b66a-8f6a18d825cb",

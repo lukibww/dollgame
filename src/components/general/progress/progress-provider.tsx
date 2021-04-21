@@ -7,11 +7,12 @@ export interface ProgressProviderProps {
   children?: ReactNode;
 }
 
+const progressKey = "user_progress";
+
 const defaultProgress: Spec.Progress = {
+  version: data.version,
   chapters: [],
 };
-
-const progressKey = "user_progress";
 
 export function ProgressProvider({ children }: ProgressProviderProps) {
   const isChapter = useCallback((value: any): value is Spec.ProgressChapter => {
@@ -76,8 +77,17 @@ export function ProgressProvider({ children }: ProgressProviderProps) {
     return createProgress();
   }, [isProgress, createProgress]);
 
+  const checkVersion = useCallback(() => {
+    const progress = getProgress();
+
+    if (progress.version !== data.version) {
+      setProgress({ chapters: [], version: data.version });
+    }
+  }, [getProgress, setProgress]);
+
   const get = useCallback(
     (id: string) => {
+      checkVersion();
       const progress = getProgress();
 
       if (progress) {
@@ -92,33 +102,33 @@ export function ProgressProvider({ children }: ProgressProviderProps) {
 
       return null;
     },
-    [getProgress, isChapter]
+    [checkVersion, getProgress, isChapter]
   );
 
   const add = useCallback(
     (value: Spec.ProgressChapter) => {
-      try {
-        const previous = localStorage.getItem(progressKey);
+      checkVersion();
+      const previous = getProgress();
 
-        if (previous) {
-          const parsed = JSON.parse(previous);
+      if (previous) {
+        const { chapters } = previous;
 
-          if (isProgress(parsed)) {
-            const { chapters } = parsed;
-
-            if (!chapters.find((chapter) => chapter.id === value.id)) {
-              const item: Spec.Progress = { chapters: [...chapters, value] };
-              setProgress(item);
-            }
-          }
+        if (!chapters.find((chapter) => chapter.id === value.id)) {
+          const item: Spec.Progress = {
+            version: data.version,
+            chapters: [...chapters, value],
+          };
+          setProgress(item);
         }
-      } catch {}
+      }
     },
-    [isProgress, setProgress]
+    [checkVersion, setProgress, getProgress]
   );
 
   const edit = useCallback(
     (id: string, value: Partial<Omit<Spec.ProgressChapter, "id">>) => {
+      checkVersion();
+
       const progress = getProgress();
       const previous = get(id);
 
@@ -128,27 +138,30 @@ export function ProgressProvider({ children }: ProgressProviderProps) {
           chapter.id === id ? item : chapter
         );
 
-        setProgress({ chapters });
+        setProgress({ chapters, version: data.version });
       }
     },
-    [get, getProgress, setProgress]
+    [get, checkVersion, getProgress, setProgress]
   );
 
   const remove = useCallback(
     (id: string) => {
+      checkVersion();
+
       const progress = getProgress();
 
       if (progress) {
         const { chapters } = progress;
 
         const item = {
+          version: data.version,
           chapters: chapters.filter((chapter) => chapter.id !== id),
         };
 
         setProgress(item);
       }
     },
-    [getProgress, setProgress]
+    [checkVersion, getProgress, setProgress]
   );
 
   const contextValue = useMemo<ProgressContextValue>(() => {

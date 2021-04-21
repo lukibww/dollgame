@@ -2,6 +2,9 @@
  * Progress that user has made
  */
 export interface Progress {
+  // Version of the app
+  version: number;
+
   // Progress chapters
   chapters: ProgressChapter[];
 }
