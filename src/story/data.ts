@@ -1,4 +1,5 @@
 import { Chapter, Choice, Dialog } from "./spec";
+import RozprawaSądowa from "../assets/images/rozprawa_sądowa.png";
 
 /**
  * Because its simple school project we do not care about
@@ -17,6 +18,7 @@ export const chapters: Chapter[] = [
     index: 1,
     name: "Vivamus sodales",
     slug: "vivamus-sodales",
+    background: RozprawaSądowa,
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec egestas est consectetur ex vestibulum, nec dignissim justo congue.",
   },

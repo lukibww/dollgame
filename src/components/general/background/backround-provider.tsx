@@ -1,11 +1,11 @@
-import { useMemo, useState } from "react";
+import { ReactNode, useMemo, useState } from "react";
 import {
   BackgroundContext,
   BackgroundContextValue,
 } from "./background-context";
 
 export interface BackgroundProviderProps {
-  children?: boolean;
+  children?: ReactNode;
 }
 
 export function BackgroundProvider({ children }: BackgroundProviderProps) {

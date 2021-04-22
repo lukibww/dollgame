@@ -39,14 +39,11 @@ export interface Chapter {
   // Slug to display in the url
   slug: string;
 
-  // Previev of what will happen in the chapter (optional)
+  // Previev of what will happen in the chapter
   description: string;
 
-  // Path to the image source (optional)
-  image?: string;
-
-  // Path to the audio played during the gameplay (optional)
-  audio?: string;
+  // Path to the background image
+  background: string;
 }
 
 /**
