@@ -13,7 +13,11 @@ export const DialogLabel = styled.label<DialogLabelProps>`
   margin-bottom: 24px;
   color: ${({ theme, type }) =>
     theme.colors[
-      type === "success" ? "secondary" : type === "failure" ? "label" : "label"
+      type === "success"
+        ? "success"
+        : type === "failure"
+        ? "error"
+        : "secondary"
     ]};
   font-family: ${({ theme }) => theme.fonts.heading};
 

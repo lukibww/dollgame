@@ -25,16 +25,11 @@ export const ChapterPreview = styled.div<ChapterPreviewProps>`
       selected ? theme.colors.primary : theme.colors.text};
   }
 
-  &:hover,
-  &:focus {
-    transform: scale(1.1);
-  }
-
   &:hover ${ChapterLabel}, &:focus ${ChapterLabel} {
-    color: ${({ theme }) => theme.colors.secondary};
+    color: ${({ theme }) => theme.colors.primary};
   }
 
   &:hover ${ChapterWindow}, &:focus ${ChapterWindow} {
-    border-color: ${({ theme }) => theme.colors.secondary};
+    border-color: ${({ theme }) => theme.colors.primary};
   }
 `;
