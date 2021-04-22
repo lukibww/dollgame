@@ -4,6 +4,7 @@ import {
   HomeGroup,
   HomeLabel,
   HomeWindow,
+  HomeButton,
   Header,
 } from "../../styled";
 import * as data from "../../../story/data";
@@ -32,7 +33,9 @@ export function GameHome() {
               onClick={handlePreviewClick(slug)}
             >
               <HomeLabel>{name}</HomeLabel>
-              <HomeWindow background={background} />
+              <HomeWindow background={background}>
+                <HomeButton as="div">Wejdź do gry</HomeButton>
+              </HomeWindow>
             </HomePreview>
           ))}
       </HomeGroup>
