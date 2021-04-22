@@ -24,7 +24,7 @@ export function GameChapters() {
       <ChapterGroup>
         {data.chapters
           .sort((a, b) => a.index - b.index)
-          .map(({ id, slug, name, image }) => (
+          .map(({ id, slug, name, background }) => (
             <ChapterPreview
               role="button"
               tabIndex={0}
@@ -32,7 +32,7 @@ export function GameChapters() {
               onClick={handleChapterClick(slug)}
             >
               <ChapterLabel>{name}</ChapterLabel>
-              <ChapterWindow background={image} />
+              <ChapterWindow background={background} />
             </ChapterPreview>
           ))}
       </ChapterGroup>

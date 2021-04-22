@@ -5,5 +5,5 @@ export function Backdrop() {
   const background = useBackground();
   const src = background?.[0];
 
-  return <Background src={src} />;
+  return <Background source={src} />;
 }

@@ -10,6 +10,7 @@ export const Container = styled.div`
   min-height: 100vh;
   overflow: auto;
   padding: 120px 60px;
+  z-index: 1;
   background-color: ${({ theme }) => theme.colors.background};
 
   @media (max-width: 1000px) {

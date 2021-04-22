@@ -1,5 +1,5 @@
 import { Chapter, Choice, Dialog } from "./spec";
-import RozprawaSądowa from "../assets/images/rozprawa_sądowa.png";
+import RozprawaSądowa from "../assets/images/rozprawa_sądowa.jpg";
 
 /**
  * Because its simple school project we do not care about
