@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HomeLabel = styled.p`
-  font-size: 2rem;
+  font-size: 2.5rem;
   line-height: 1.2;
   font-weight: 400;
   letter-spacing: 3px;
@@ -13,7 +13,7 @@ export const HomeLabel = styled.p`
   font-family: ${({ theme }) => theme.fonts.heading};
 
   @media (max-width: 1000px) {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
 
   @media (max-width: 500px) {

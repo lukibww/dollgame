@@ -1,7 +1,7 @@
 import { NotFoundRedirect } from "../not-found-redirect";
-import { useMusic, useProgress } from "../../general";
+import { useBackground, useMusic, useProgress } from "../../general";
 import { genHash } from "../../../utils";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { DefaultParams, useLocation } from "wouter";
 import { GameDialog } from "./dialog";
 import { GameEntry } from "./entry";
@@ -23,11 +23,31 @@ export function GameChapter({ params }: GameChapterProps) {
 
   const [dialog, setDialog] = useState<Spec.Dialog | null>(null);
 
+  const background = useBackground();
   const [, setLocation] = useLocation();
 
   const chapter = useMemo(() => {
     return data.chapters.find((chapter) => chapter.slug === params.slug);
   }, [params.slug]);
+
+  useEffect(() => {
+    const set = (value: string | undefined) => {
+      if (background) {
+        const setBackground = background[1];
+        setBackground(value);
+      }
+    };
+
+    if (chapter) {
+      set(chapter.background);
+    }
+
+    return () => {
+      if (chapter) {
+        set(undefined);
+      }
+    };
+  }, [background, chapter]);
 
   if (progress && music) {
     if (chapter && dialog) {

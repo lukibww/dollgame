@@ -7,7 +7,7 @@ export const DialogSection = styled.div`
   align-items: center;
   justify-content: center;
 
-  @media (max-width: 1500px) {
+  @media (max-width: 1750px) {
     width: 100%;
   }
 `;

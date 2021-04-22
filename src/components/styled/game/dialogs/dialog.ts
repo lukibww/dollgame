@@ -16,7 +16,7 @@ export const Dialog = styled.div<DialogProps>`
     margin-left: ${({ column }) => (column ? 0 : 64)}px;
   }
 
-  @media (max-width: 1500px) {
+  @media (max-width: 1750px) {
     flex-direction: column;
 
     & > * + * {

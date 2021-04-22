@@ -1,10 +1,4 @@
-import {
-  ChapterPage,
-  ChapterSection,
-  Header,
-  Paragraph,
-  Button,
-} from "../../styled";
+import { ChapterPage, Header, Paragraph, Button } from "../../styled";
 import * as Spec from "../../../story/spec";
 import { NotFoundRedirect } from "../not-found-redirect";
 
@@ -19,15 +13,13 @@ export function GameEntry({ chapter, started, onStart }: GameEntryProps) {
 
   return (
     <ChapterPage>
-      <ChapterSection>
-        <Header small gutter>
-          {chapter.name}
-        </Header>
-        <Paragraph gutter>{chapter.description}</Paragraph>
-        <Button onClick={onStart}>
-          {started ? "Kontyntynuj" : "Rozpocznij"}
-        </Button>
-      </ChapterSection>
+      <Header small gutter>
+        {chapter.name}
+      </Header>
+      <Paragraph gutter>{chapter.description}</Paragraph>
+      <Button onClick={onStart}>
+        {started ? "Kontyntynuj" : "Rozpocznij"}
+      </Button>
     </ChapterPage>
   );
 }
