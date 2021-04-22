@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Route, Switch } from "wouter";
-import { GameChapters } from "./chapters";
+import { GameHome } from "./home";
 import { GameChapter, GameChapterParams } from "./chapter";
 import { NotFoundRedirect } from "../not-found-redirect";
 import { useMusic } from "../../general";
@@ -23,7 +23,7 @@ export function Game() {
   return (
     <Switch>
       <Route path="/game">
-        <GameChapters />
+        <GameHome />
       </Route>
       <Route<GameChapterParams> path="/game/:slug">
         {(params) => <GameChapter params={params} />}

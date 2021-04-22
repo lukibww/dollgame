@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ChapterGroup = styled.div`
+export const HomeGroup = styled.div`
   display: grid;
   grid-gap: 64px;
   width: 100%;

@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { ChapterLabel } from "./chapter-label";
-import { ChapterWindow } from "./chapter-window";
+import { HomeLabel } from "./home-label";
+import { HomeWindow } from "./home-window";
 
-export interface ChapterPreviewProps {
+export interface HomePreviewProps {
   selected?: boolean;
 }
 
-export const ChapterPreview = styled.div<ChapterPreviewProps>`
+export const HomePreview = styled.div<HomePreviewProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,21 +15,21 @@ export const ChapterPreview = styled.div<ChapterPreviewProps>`
   transition: 0.1s transform ease;
   transform: scale(1);
 
-  ${ChapterLabel} {
+  ${HomeLabel} {
     color: ${({ theme, selected }) =>
       selected ? theme.colors.primary : theme.colors.text};
   }
 
-  ${ChapterWindow} {
+  ${HomeWindow} {
     border-color: ${({ theme, selected }) =>
       selected ? theme.colors.primary : theme.colors.text};
   }
 
-  &:hover ${ChapterLabel}, &:focus ${ChapterLabel} {
+  &:hover ${HomeLabel}, &:focus ${HomeLabel} {
     color: ${({ theme }) => theme.colors.primary};
   }
 
-  &:hover ${ChapterWindow}, &:focus ${ChapterWindow} {
+  &:hover ${HomeWindow}, &:focus ${HomeWindow} {
     border-color: ${({ theme }) => theme.colors.primary};
   }
 `;

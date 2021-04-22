@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ChapterLabel = styled.p`
+export const HomeLabel = styled.p`
   font-size: 2rem;
   line-height: 1.2;
   font-weight: 400;

@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export interface ChapterWindowProps {
+export interface HomeWindowProps {
   background?: string;
 }
 
-export const ChapterWindow = styled.div<ChapterWindowProps>`
+export const HomeWindow = styled.div<HomeWindowProps>`
   flex: 1;
   border-width: 3px;
   width: 100%;
