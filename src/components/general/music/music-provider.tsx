@@ -39,10 +39,8 @@ export function MusicProvider({ children }: MusicProviderProps) {
 
   return (
     <MusicContext.Provider value={contextValue}>
-      {/* Preloading will lead to better user experience */}
-
-      <audio src={soundtrack} preload="metadata" />
-      <audio src={click} preload="metadata" />
+      <audio src={soundtrack} preload="auto" />
+      <audio src={click} preload="auto" />
 
       <Absolute top={0} left={0}>
         {audio.map(({ key, loop, ...other }) => (
