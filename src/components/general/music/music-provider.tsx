@@ -2,6 +2,9 @@ import { ReactNode, useMemo, useState } from "react";
 import { Absolute, Audio } from "../../styled";
 import { MusicContext, MusicContextValue } from "./music-context";
 
+import soundtrack from "../../../assets/audio/doll.mp3";
+import click from "../../../assets/audio/click.wav";
+
 export interface MusicAudio {
   src: string;
   key: string;
@@ -36,6 +39,11 @@ export function MusicProvider({ children }: MusicProviderProps) {
 
   return (
     <MusicContext.Provider value={contextValue}>
+      {/* Preloading will lead to better user experience */}
+
+      <audio src={soundtrack} preload="metadata" />
+      <audio src={click} preload="metadata" />
+
       <Absolute top={0} left={0}>
         {audio.map(({ key, loop, ...other }) => (
           <Audio
