@@ -11,6 +11,7 @@ export const Button = styled.button`
   transition-property: background-color, color;
   transition-duration: 0.1s;
   border-radius: 2px;
+  white-space: nowrap;
   transition-timing-function: ease;
   font-family: ${({ theme }) => theme.fonts.button};
   border: 2px solid ${({ theme }) => theme.colors.text};

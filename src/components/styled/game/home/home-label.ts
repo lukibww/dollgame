@@ -11,6 +11,7 @@ export const HomeLabel = styled.p`
   overflow: hidden;
   transition: 0.1s color ease;
   font-family: ${({ theme }) => theme.fonts.heading};
+  color: ${({ theme }) => theme.colors.text};
 
   @media (max-width: 1000px) {
     font-size: 1.8rem;
