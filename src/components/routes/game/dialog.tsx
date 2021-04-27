@@ -7,6 +7,7 @@ import {
   DialogSection,
   DialogText,
   DialogResume,
+  DialogCharacter,
   ChapterPage,
 } from "../../styled";
 import * as data from "../../../story/data";
@@ -33,6 +34,7 @@ export function GameDialog({ dialog, onChoice, onEnd }: GameDialogProps) {
   return (
     <ChapterPage>
       <Dialog column={special}>
+        <DialogCharacter source={dialog.character} />
         <DialogSection>
           <DialogLabel type={dialog.type}>{dialog.label}</DialogLabel>
           <DialogText>{dialog.text}</DialogText>

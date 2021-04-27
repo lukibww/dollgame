@@ -1,5 +1,16 @@
 import { Chapter, Choice, Dialog } from "./spec";
+
+import Adwokat from "../assets/images/adwokat.jpg";
+import Baronowa from "../assets/images/baronowa.jpg";
+import Dziecko from "../assets/images/dziecko.jpg";
+import Maruszewicz from "../assets/images/maruszewicz.jpg";
 import RozprawaSądowa from "../assets/images/rozprawa_sądowa.jpg";
+import Rzecki from "../assets/images/rzecki.jpg";
+import Sędzia from "../assets/images/sędzia.jpg";
+import Służąca from "../assets/images/służąca.jpg";
+
+// import Stawska from "../assets/images/stawska.jpg";
+// import Wokulski from "../assets/images/wokulski.jpg";
 
 /**
  * Because its simple school project we do not care about
@@ -31,6 +42,7 @@ export const dialogs: Dialog[] = [
     chapterId: "73cf4f8a-00c9-4b8f-b66a-8f6a18d825cb",
     label: "Lorem ipsum dolor sit amet",
     type: "default",
+    character: Adwokat,
     text:
       "Consectetur adipiscing elit. Duis ut erat justo. Praesent tempor in elit eu porta. Cras eu metus condimentum, facilisis leo et, sollicitudin ligula. Curabitur vitae bibendum dolor. Vestibulum quis ante pharetra, vulputate libero in, faucibus mi. Quisque sit amet nisi nec eros porta scelerisque. Quisque in sem sit amet justo cursus vestibulum non sed nisl. Maecenas ac eros magna. In sodales tincidunt ante, quis consectetur nunc ullamcorper eu. ",
   },
@@ -40,6 +52,7 @@ export const dialogs: Dialog[] = [
     chapterId: "73cf4f8a-00c9-4b8f-b66a-8f6a18d825cb",
     label: "Praesent vitae metus porttitor",
     type: "default",
+    character: Baronowa,
     text:
       "Fringilla dolor et, sagittis ante. Pellentesque finibus, purus sed tristique semper, felis ex tincidunt enim, in mollis mi erat at ipsum. Etiam egestas tellus in eros vulputate cursus. Vivamus at diam vel magna blandit imperdiet. Suspendisse quis leo nec ligula porttitor fermentum. Ut rhoncus hendrerit pharetra. Mauris dui libero, ultrices eu felis vitae, sodales ornare nibh. Morbi quis massa tellus. Nulla ut dolor non enim luctus semper sit amet vitae ligula. Duis a convallis lectus. Curabitur eget malesuada erat. Donec tempor orci erat, ut convallis urna commodo in. ",
   },
@@ -49,6 +62,7 @@ export const dialogs: Dialog[] = [
     chapterId: "73cf4f8a-00c9-4b8f-b66a-8f6a18d825cb",
     label: "Pellentesque facilisis",
     type: "default",
+    character: Dziecko,
     text:
       "Felis id congue. Ut sapien lorem, euismod sed justo a, placerat luctus massa. Maecenas condimentum augue sed nisi viverra ornare. Maecenas ac vulputate urna, sagittis facilisis ante. Duis at finibus magna, et aliquam enim. Vivamus vel nibh aliquam, luctus diam quis, venenatis odio. Suspendisse in dui a urna tempus vulputate. Nunc dui metus, mollis a tristique in, porta elementum turpis. Aenean augue purus, interdum sed diam nec, fringilla tincidunt arcu.",
   },
@@ -58,6 +72,7 @@ export const dialogs: Dialog[] = [
     chapterId: "73cf4f8a-00c9-4b8f-b66a-8f6a18d825cb",
     label: "Orci varius",
     type: "default",
+    character: Maruszewicz,
     text:
       "Natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean venenatis tincidunt lorem eu ornare. Phasellus et pharetra erat. Vestibulum blandit auctor ex. Nunc cursus magna sit amet lacus dictum, nec volutpat eros scelerisque. Proin enim sem, fermentum eget cursus a, aliquam nec lacus. ",
   },
@@ -67,6 +82,7 @@ export const dialogs: Dialog[] = [
     chapterId: "73cf4f8a-00c9-4b8f-b66a-8f6a18d825cb",
     label: "Donec sed dolor",
     type: "default",
+    character: Rzecki,
     text:
       "Maecenas a accumsan sem. Integer lobortis erat ac fringilla posuere. In hac habitasse platea dictumst. Sed venenatis, urna at pulvinar hendrerit, nisl libero condimentum augue, eget sagittis felis magna ut sapien. Curabitur ullamcorper, enim nec vulputate eleifend purus interdum turpis, in consequat nisl justo id metus.",
   },
@@ -76,6 +92,7 @@ export const dialogs: Dialog[] = [
     chapterId: "73cf4f8a-00c9-4b8f-b66a-8f6a18d825cb",
     label: "Donec sed dolor",
     type: "failure",
+    character: Sędzia,
     text:
       "Maecenas a accumsan sem. Integer lobortis erat ac fringilla posuere. In hac habitasse platea dictumst. Sed venenatis, urna at pulvinar hendrerit, nisl libero condimentum augue, eget sagittis felis magna ut sapien. Curabitur ullamcorper, enim nec vulputate eleifend purus interdum turpis, in consequat nisl justo id metus.",
   },
@@ -85,6 +102,7 @@ export const dialogs: Dialog[] = [
     chapterId: "73cf4f8a-00c9-4b8f-b66a-8f6a18d825cb",
     label: "Donec sed dolor",
     type: "success",
+    character: Służąca,
     text:
       "Maecenas a accumsan sem. Integer lobortis erat ac fringilla posuere. In hac habitasse platea dictumst. Sed venenatis, urna at pulvinar hendrerit, nisl libero condimentum augue, eget sagittis felis magna ut sapien. Curabitur ullamcorper, enim nec vulputate eleifend purus interdum turpis, in consequat nisl justo id metus.",
   },

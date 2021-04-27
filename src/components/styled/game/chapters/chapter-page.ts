@@ -6,8 +6,9 @@ export const ChapterPage = styled.div`
   justify-content: center;
   flex-direction: column;
   border-radius: 2px;
+  position: relative;
   flex: 1;
-  padding: 64px 128px;
+  padding: 64px;
   border: 3px solid ${({ theme }) => theme.colors.text};
   background-color: ${({ theme }) => theme.colors.background};
   box-shadow: 0 2px 7.9px rgba(0, 0, 0, 0.042),
@@ -16,10 +17,10 @@ export const ChapterPage = styled.div`
     0 69px 284px rgba(0, 0, 0, 0.15);
 
   @media (max-width: 1000px) {
-    padding: 32px 64px;
+    padding: 32px;
   }
 
   @media (max-width: 500px) {
-    padding: 16px 32px;
+    padding: 16px;
   }
 `;

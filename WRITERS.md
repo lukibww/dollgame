@@ -74,6 +74,9 @@ label: string;
 // Treść dialogu
 text: string;
 
+// Nazwa postaci biorącej nawiększy udział w dialogu
+character: string;
+
 // Typ dialogu, jeśli `success` lub `failure`, wątek się kończy
 type: "default" | "success" | "failure";
 
@@ -92,6 +95,7 @@ text: `
     Quisque et diam ante. Praesent ullamcorper urna eget lacus laoreet, dignissim iaculis diam finibus.
     Maecenas in ipsum ac odio semper pretium at vitae magna. Maecenas blandit elit quis dapibus venenatis.
 `,
+character: "Rzecki",
 type: "default",
 chapterId: "7ca671bd-f13e-42ea-8e72-4e865bba3d38"
 
@@ -103,6 +107,7 @@ text: `
     Phasellus dignissim orci eu nunc ultrices, non posuere ex tempus. Phasellus urna nibh, fringilla at risus non, vulputate scelerisque lacus.
     Nunc non nunc dolor. Nulla porttitor urna non porttitor egestas.
 `,
+character: "Wokulski",
 type: "success",
 chapterId: "7ca671bd-f13e-42ea-8e72-4e865bba3d38"
 ```

@@ -56,16 +56,16 @@ export interface Dialog {
   // Dialog index used for ordering
   index: number;
 
-  // Label representing the dialog (optional)
-  label?: string;
+  // Label representing the dialog
+  label: string;
 
-  // Description of the situation (optional)
-  text?: string;
+  // Description of the situation
+  text: string;
 
-  // Path to the background source (optional)
-  background?: string;
+  // Path to the chatacter image
+  character: string;
 
-  // If not default we will use different view (optional)
+  // If not default we will use different view
   type: "default" | "success" | "failure";
 
   // Reference ID to the chapter
