@@ -33,8 +33,8 @@ export function GameDialog({ dialog, onChoice, onEnd }: GameDialogProps) {
 
   return (
     <ChapterPage>
+      <DialogCharacter source={dialog.character} />
       <Dialog column={special}>
-        <DialogCharacter source={dialog.character} />
         <DialogSection>
           <DialogLabel type={dialog.type}>{dialog.label}</DialogLabel>
           <DialogText>{dialog.text}</DialogText>

@@ -6,10 +6,6 @@ export interface DialogCharacterProps {
 
 export const DialogCharacter = styled.div<DialogCharacterProps>`
   display: flex;
-  position: absolute;
-  top: 0px;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 150px;
   height: 150px;
   background-size: cover;
