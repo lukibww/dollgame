@@ -2,8 +2,10 @@ import { ReactNode, useMemo, useState } from "react";
 import { Absolute, Audio } from "../../styled";
 import { MusicContext, MusicContextValue } from "./music-context";
 
-import soundtrack from "../../../assets/audio/doll.mp3";
-import click from "../../../assets/audio/click.wav";
+import gameplay from "../../../assets/audio/gameplay.mp3";
+import win from "../../../assets/audio/win.mp3";
+import loose from "../../../assets/audio/loose.mp3";
+import click from "../../../assets/audio/click.mp3";
 
 export interface MusicAudio {
   src: string;
@@ -21,26 +23,38 @@ export function MusicProvider({ children }: MusicProviderProps) {
 
   const contextValue = useMemo<MusicContextValue>(() => {
     return {
-      add: (audio) => {
-        setAudio((prevState) => [...prevState, audio]);
-      },
-      edit: (key, audio) => {
+      add: (audio) =>
+        setAudio((prevState) => {
+          if (!prevState.map((item) => item.key).includes(audio.key)) {
+            return [...prevState, audio];
+          }
+
+          return prevState;
+        }),
+      edit: (key, audio) =>
         setAudio((prevState) =>
           prevState.map((item) =>
             key === item.key ? { ...item, ...audio } : item
           )
-        );
-      },
-      remove: (key: string) => {
-        setAudio((prevState) => prevState.filter((item) => item.key !== key));
-      },
+        ),
+      remove: (key: string) =>
+        setAudio((prevState) => {
+          if (prevState.map((item) => item.key).includes(key)) {
+            return prevState.filter((item) => item.key !== key);
+          }
+
+          return prevState;
+        }),
     };
   }, []);
 
   return (
     <MusicContext.Provider value={contextValue}>
-      <audio src={soundtrack} preload="auto" />
       <audio src={click} preload="auto" />
+
+      <audio src={gameplay} preload="metadata" />
+      <audio src={win} preload="metadata" />
+      <audio src={loose} preload="metadata" />
 
       <Absolute top={0} left={0}>
         {audio.map(({ key, loop, ...other }) => (
