@@ -9,7 +9,7 @@ export const DialogCharacter = styled.div<DialogCharacterProps>`
   position: absolute;
   top: 0px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 15%);
   width: 150px;
   height: 150px;
   background-size: cover;
