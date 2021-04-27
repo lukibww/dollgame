@@ -1,16 +1,16 @@
 import { Chapter, Choice, Dialog } from "./spec";
 
-import Adwokat from "../assets/images/adwokat.jpg";
-import Baronowa from "../assets/images/baronowa.jpg";
-import Dziecko from "../assets/images/dziecko.jpg";
-import Maruszewicz from "../assets/images/maruszewicz.jpg";
+import Adwokat from "../assets/images/adwokat.png";
+import Baronowa from "../assets/images/baronowa.png";
+import Dziecko from "../assets/images/dziecko.png";
+import Maruszewicz from "../assets/images/maruszewicz.png";
 import RozprawaSądowa from "../assets/images/rozprawa_sądowa.jpg";
-import Rzecki from "../assets/images/rzecki.jpg";
-import Sędzia from "../assets/images/sędzia.jpg";
-import Służąca from "../assets/images/służąca.jpg";
+import Rzecki from "../assets/images/rzecki.png";
+import Sędzia from "../assets/images/sędzia.png";
+import Służąca from "../assets/images/służąca.png";
 
-// import Stawska from "../assets/images/stawska.jpg";
-// import Wokulski from "../assets/images/wokulski.jpg";
+// import Stawska from "../assets/images/stawska.png";
+// import Wokulski from "../assets/images/wokulski.png";
 
 /**
  * Because its simple school project we do not care about
