@@ -1,5 +1,5 @@
 import { NotFoundRedirect } from "../not-found-redirect";
-import { useBackground, useMusic } from "../../general";
+import { useMusic } from "../../general";
 import { genHash, useId } from "../../../utils";
 import { useEffect, useMemo, useState } from "react";
 import { DefaultParams, useLocation } from "wouter";
@@ -26,7 +26,6 @@ export function GameChapter({ params }: GameChapterProps) {
 
   const [dialog, setDialog] = useState<Spec.Dialog | null>(null);
 
-  const background = useBackground();
   const [, setLocation] = useLocation();
 
   const chapter = useMemo(() => {
@@ -66,25 +65,6 @@ export function GameChapter({ params }: GameChapterProps) {
       }
     }
   }, [music, dialog, gameplayId, looseId, winId]);
-
-  useEffect(() => {
-    const set = (value: string | undefined) => {
-      if (background) {
-        const setBackground = background[1];
-        setBackground(value);
-      }
-    };
-
-    if (chapter) {
-      set(chapter.background);
-    }
-
-    return () => {
-      if (chapter) {
-        set(undefined);
-      }
-    };
-  }, [background, chapter]);
 
   if (music) {
     if (chapter && dialog) {
