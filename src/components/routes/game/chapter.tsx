@@ -1,10 +1,12 @@
 import { NotFoundRedirect } from "../not-found-redirect";
-import { useMemo, useState } from "react";
-import { DefaultParams, useLocation } from "wouter";
+import { Fragment, useMemo, useState } from "react";
+import { DefaultParams } from "wouter";
 import { GameDialog } from "./dialog";
-import { ChapterBackground, ChapterMain, ChapterAudio } from "../../styled";
-import * as Spec from "../../../story/spec";
+import { ChapterBackground, ChapterMain, Audio } from "../../styled";
+import { GameFailure } from "./failure";
+import { GameSuccess } from "./success";
 import { useData } from "../../general/data";
+import * as Spec from "../../../story/spec";
 
 export interface GameChapterParams extends DefaultParams {
   slug: string;
@@ -16,8 +18,6 @@ interface GameChapterProps {
 
 export function GameChapter({ params }: GameChapterProps) {
   const data = useData();
-
-  const [, setLocation] = useLocation();
 
   const chapter = useMemo(() => {
     return data.chapters.find((chapter) => chapter.slug === params.slug);
@@ -40,19 +40,19 @@ export function GameChapter({ params }: GameChapterProps) {
       }
     };
 
-    const handleEnd = () => {
-      setLocation("/");
-    };
-
     return (
       <ChapterBackground source={chapter.background}>
-        <ChapterAudio src={chapter.audio} autoPlay loop />
         <ChapterMain>
-          <GameDialog
-            onChoice={handleChoice}
-            onEnd={handleEnd}
-            dialog={dialog}
-          />
+          {dialog.type === "success" ? (
+            <GameSuccess message={dialog.text} />
+          ) : dialog.type === "failure" ? (
+            <GameFailure message={dialog.text} />
+          ) : (
+            <Fragment>
+              <Audio src={chapter.audio} autoPlay loop />
+              <GameDialog onChoice={handleChoice} dialog={dialog} />
+            </Fragment>
+          )}
         </ChapterMain>
       </ChapterBackground>
     );

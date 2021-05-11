@@ -1,10 +1,8 @@
 import { NotFoundRedirect } from "../not-found-redirect";
 import {
-  Button,
   DialogChoice,
   DialogLabel,
   DialogText,
-  DialogResume,
   DialogCharacter,
   DialogChoices,
   DialogReturn,
@@ -16,14 +14,12 @@ import { useData } from "../../general/data";
 
 interface GameDialogProps {
   dialog?: Spec.Dialog;
-  onEnd?: () => void;
   onChoice?: (value: Spec.Choice) => void;
 }
 
-export function GameDialog({ dialog, onChoice, onEnd }: GameDialogProps) {
+export function GameDialog({ dialog, onChoice }: GameDialogProps) {
   const data = useData();
 
-  const special = dialog && dialog.type !== "default";
   const choices = data.choices.filter(
     (choice) => choice.dialogId === dialog?.id
   );
@@ -43,21 +39,15 @@ export function GameDialog({ dialog, onChoice, onEnd }: GameDialogProps) {
       <DialogCharacter source={character.image} />
       <DialogLabel>{character.name}</DialogLabel>
       <DialogText>{dialog.text}</DialogText>
-      {special ? (
-        <DialogResume>
-          <Button onClick={onEnd}>Zakończ</Button>
-        </DialogResume>
-      ) : (
-        <DialogChoices>
-          {choices
-            .sort((a, b) => a.index - b.index)
-            .map((choice) => (
-              <DialogChoice key={choice.id} onClick={handleChoice(choice)}>
-                {choice.text}
-              </DialogChoice>
-            ))}
-        </DialogChoices>
-      )}
+      <DialogChoices>
+        {choices
+          .sort((a, b) => a.index - b.index)
+          .map((choice) => (
+            <DialogChoice key={choice.id} onClick={handleChoice(choice)}>
+              {choice.text}
+            </DialogChoice>
+          ))}
+      </DialogChoices>
       <WouterLink href="/game">
         <DialogReturn>Powrót</DialogReturn>
       </WouterLink>
