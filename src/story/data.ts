@@ -1,4 +1,4 @@
-import { Chapter, Choice, Dialog } from "./spec";
+import { Chapter, Choice, Dialog, Character } from "./spec";
 
 import Adwokat from "../assets/images/adwokat.png";
 import Baronowa from "../assets/images/baronowa.png";
@@ -8,9 +8,8 @@ import RozprawaSądowa from "../assets/images/rozprawa_sądowa.jpg";
 import Rzecki from "../assets/images/rzecki.png";
 import Sędzia from "../assets/images/sędzia.png";
 import Służąca from "../assets/images/służąca.png";
-
-// import Stawska from "../assets/images/stawska.png";
-// import Wokulski from "../assets/images/wokulski.png";
+import Stawska from "../assets/images/stawska.png";
+import Wokulski from "../assets/images/wokulski.png";
 
 /**
  * Because its simple school project we do not care about
@@ -19,7 +18,7 @@ import Służąca from "../assets/images/służąca.png";
  */
 
 /**
- * Plase update this value every time you change anything
+ * Plase increment this value every time you change anything
  */
 export const version = 1;
 
@@ -40,71 +39,57 @@ export const dialogs: Dialog[] = [
     id: "94aed6f6-de51-4252-a4ce-09564f1309c8",
     index: 1,
     chapterId: "73cf4f8a-00c9-4b8f-b66a-8f6a18d825cb",
-    label: "Lorem ipsum dolor sit amet",
     type: "default",
-    character: Adwokat,
-    text:
-      "Consectetur adipiscing elit. Duis ut erat justo. Praesent tempor in elit eu porta. Cras eu metus condimentum, facilisis leo et, sollicitudin ligula. Curabitur vitae bibendum dolor. Vestibulum quis ante pharetra, vulputate libero in, faucibus mi. Quisque sit amet nisi nec eros porta scelerisque. Quisque in sem sit amet justo cursus vestibulum non sed nisl. Maecenas ac eros magna. In sodales tincidunt ante, quis consectetur nunc ullamcorper eu. ",
+    characterId: 2,
+    text: "Consectetur adipiscing elit. Duis ut erat justo.",
   },
   {
     id: "cb33629c-6917-45e1-8861-1dfa8bee4722",
     index: 2,
     chapterId: "73cf4f8a-00c9-4b8f-b66a-8f6a18d825cb",
-    label: "Praesent vitae metus porttitor",
     type: "default",
-    character: Baronowa,
-    text:
-      "Fringilla dolor et, sagittis ante. Pellentesque finibus, purus sed tristique semper, felis ex tincidunt enim, in mollis mi erat at ipsum. Etiam egestas tellus in eros vulputate cursus. Vivamus at diam vel magna blandit imperdiet. Suspendisse quis leo nec ligula porttitor fermentum. Ut rhoncus hendrerit pharetra. Mauris dui libero, ultrices eu felis vitae, sodales ornare nibh. Morbi quis massa tellus. Nulla ut dolor non enim luctus semper sit amet vitae ligula. Duis a convallis lectus. Curabitur eget malesuada erat. Donec tempor orci erat, ut convallis urna commodo in. ",
+    characterId: 5,
+    text: "Fringilla dolor et, sagittis ante. Pellentesque finibus, purus sed tristique semper.",
   },
   {
     id: "84f2131e-e3bc-4b25-a61d-c7325cb28832",
     index: 3,
     chapterId: "73cf4f8a-00c9-4b8f-b66a-8f6a18d825cb",
-    label: "Pellentesque facilisis",
     type: "default",
-    character: Dziecko,
-    text:
-      "Felis id congue. Ut sapien lorem, euismod sed justo a, placerat luctus massa. Maecenas condimentum augue sed nisi viverra ornare. Maecenas ac vulputate urna, sagittis facilisis ante. Duis at finibus magna, et aliquam enim. Vivamus vel nibh aliquam, luctus diam quis, venenatis odio. Suspendisse in dui a urna tempus vulputate. Nunc dui metus, mollis a tristique in, porta elementum turpis. Aenean augue purus, interdum sed diam nec, fringilla tincidunt arcu.",
+    characterId: 1,
+    text: "Felis id congue. Ut sapien lorem, euismod sed justo a, placerat luctus massa.",
   },
   {
     id: "fbafe2eb-1f96-4482-b68d-a54e8f6c29a1",
     index: 4,
     chapterId: "73cf4f8a-00c9-4b8f-b66a-8f6a18d825cb",
-    label: "Orci varius",
     type: "default",
-    character: Maruszewicz,
-    text:
-      "Natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean venenatis tincidunt lorem eu ornare. Phasellus et pharetra erat. Vestibulum blandit auctor ex. Nunc cursus magna sit amet lacus dictum, nec volutpat eros scelerisque. Proin enim sem, fermentum eget cursus a, aliquam nec lacus. ",
+    characterId: 4,
+    text: "Natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
   },
   {
     id: "7e95d319-7580-487f-941d-634c911d6d73",
     index: 5,
     chapterId: "73cf4f8a-00c9-4b8f-b66a-8f6a18d825cb",
-    label: "Donec sed dolor",
     type: "default",
-    character: Rzecki,
-    text:
-      "Maecenas a accumsan sem. Integer lobortis erat ac fringilla posuere. In hac habitasse platea dictumst. Sed venenatis, urna at pulvinar hendrerit, nisl libero condimentum augue, eget sagittis felis magna ut sapien. Curabitur ullamcorper, enim nec vulputate eleifend purus interdum turpis, in consequat nisl justo id metus.",
+    characterId: 7,
+    text: "Maecenas a accumsan sem. Integer lobortis erat ac fringilla posuere",
   },
   {
     id: "64716deb-1251-4e55-a0fb-294b0969959c",
     index: 6,
     chapterId: "73cf4f8a-00c9-4b8f-b66a-8f6a18d825cb",
-    label: "Donec sed dolor",
     type: "failure",
-    character: Sędzia,
-    text:
-      "Maecenas a accumsan sem. Integer lobortis erat ac fringilla posuere. In hac habitasse platea dictumst. Sed venenatis, urna at pulvinar hendrerit, nisl libero condimentum augue, eget sagittis felis magna ut sapien. Curabitur ullamcorper, enim nec vulputate eleifend purus interdum turpis, in consequat nisl justo id metus.",
+    characterId: 8,
+    text: "Maecenas a accumsan sem. Integer lobortis erat ac fringilla posuere.",
   },
   {
     id: "bec1a3f9-456f-4a88-8086-c0cce0821f85",
     index: 7,
     chapterId: "73cf4f8a-00c9-4b8f-b66a-8f6a18d825cb",
-    label: "Donec sed dolor",
     type: "success",
-    character: Służąca,
-    text:
-      "Maecenas a accumsan sem. Integer lobortis erat ac fringilla posuere. In hac habitasse platea dictumst. Sed venenatis, urna at pulvinar hendrerit, nisl libero condimentum augue, eget sagittis felis magna ut sapien. Curabitur ullamcorper, enim nec vulputate eleifend purus interdum turpis, in consequat nisl justo id metus.",
+    characterId: 3,
+    text: "Maecenas a accumsan sem. Integer lobortis erat ac fringilla posuere.",
   },
 ];
 
@@ -213,5 +198,53 @@ export const choices: Choice[] = [
     dialogId: "7e95d319-7580-487f-941d-634c911d6d73",
     text: "Proin nunc elit, euismod nec posuere",
     next: "94aed6f6-de51-4252-a4ce-09564f1309c8",
+  },
+];
+
+export const characters: Character[] = [
+  {
+    id: 1,
+    name: "Wokulski",
+    image: Wokulski,
+  },
+  {
+    id: 2,
+    name: "Rzecki",
+    image: Rzecki,
+  },
+  {
+    id: 3,
+    name: "Adwokat",
+    image: Adwokat,
+  },
+  {
+    id: 4,
+    name: "Baronowa",
+    image: Baronowa,
+  },
+  {
+    id: 5,
+    name: "Dziecko",
+    image: Dziecko,
+  },
+  {
+    id: 6,
+    name: "Maruszewicz",
+    image: Maruszewicz,
+  },
+  {
+    id: 7,
+    name: "Sędzia",
+    image: Sędzia,
+  },
+  {
+    id: 8,
+    name: "Służąca",
+    image: Służąca,
+  },
+  {
+    id: 9,
+    name: "Stawska",
+    image: Stawska,
   },
 ];

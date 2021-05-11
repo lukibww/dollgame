@@ -56,17 +56,14 @@ export interface Dialog {
   // Dialog index used for ordering
   index: number;
 
-  // Label representing the dialog
-  label: string;
-
   // Description of the situation
   text: string;
 
-  // Path to the chatacter image
-  character: string;
-
   // If not default we will use different view
   type: "default" | "success" | "failure";
+
+  // Reference ID to the character
+  characterId: number;
 
   // Reference ID to the chapter
   chapterId: string;
@@ -90,4 +87,18 @@ export interface Choice {
 
   // Reference ID to the dialog
   dialogId: string;
+}
+
+/**
+ * The story character
+ */
+export interface Character {
+  // Unique character ID
+  id: number;
+
+  // Diplay name of the character
+  name: string;
+
+  // Path to the character image source
+  image: string;
 }

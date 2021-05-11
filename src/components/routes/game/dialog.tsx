@@ -29,14 +29,18 @@ export function GameDialog({ dialog, onChoice, onEnd }: GameDialogProps) {
     onChoice?.(choice);
   };
 
-  if (!dialog) return <NotFoundRedirect />;
+  const character = data.characters.find(
+    (character) => character.id === dialog?.characterId
+  );
+
+  if (!dialog || !character) return <NotFoundRedirect />;
 
   return (
     <ChapterPage>
-      <DialogCharacter source={dialog.character} />
+      <DialogCharacter source={character.image} />
       <Dialog column={special}>
         <DialogSection>
-          <DialogLabel type={dialog.type}>{dialog.label}</DialogLabel>
+          <DialogLabel type={dialog.type}>{character.name}</DialogLabel>
           <DialogText>{dialog.text}</DialogText>
         </DialogSection>
         {special ? (
