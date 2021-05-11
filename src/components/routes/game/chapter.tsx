@@ -4,11 +4,11 @@ import { genHash, useId } from "../../../utils";
 import { useEffect, useMemo, useState } from "react";
 import { DefaultParams, useLocation } from "wouter";
 import { GameDialog } from "./dialog";
-import { GameEntry } from "./entry";
+import { ChapterBackground, ChapterMain, ChapterAudio } from "../../styled";
 import * as data from "../../../story/data";
 import * as Spec from "../../../story/spec";
 
-import gameplay from "../../../assets/audio/gameplay.mp3";
+import gameplay from "../../../assets/audio/rozprawa_sądowa.mp3";
 import win from "../../../assets/audio/win.mp3";
 import loose from "../../../assets/audio/loose.mp3";
 import click from "../../../assets/audio/click.mp3";
@@ -110,41 +110,16 @@ export function GameChapter({ params }: GameChapterProps) {
       };
 
       return (
-        <GameDialog onChoice={handleChoice} onEnd={handleEnd} dialog={dialog} />
-      );
-    } else if (chapter) {
-      const started = !!progress.get(chapter.id)?.dialogId;
-
-      const handleStart = () => {
-        const item = progress.get(chapter.id);
-
-        if (item) {
-          const { dialogId } = item;
-
-          const currentDialog = data.dialogs.find(
-            (dialog) => dialog.id === dialogId
-          );
-
-          if (currentDialog) {
-            setDialog(currentDialog);
-          }
-        } else {
-          const firstDialog = data.dialogs.find((dialog) => dialog.index === 1);
-
-          if (firstDialog) {
-            progress.add({
-              id: chapter.id,
-              chapterId: chapter.id,
-              dialogId: firstDialog.id,
-            });
-
-            setDialog(firstDialog);
-          }
-        }
-      };
-
-      return (
-        <GameEntry started={started} onStart={handleStart} chapter={chapter} />
+        <ChapterBackground source={chapter.background}>
+          <ChapterAudio src={chapter.audio} autoPlay loop />
+          <ChapterMain>
+            <GameDialog
+              onChoice={handleChoice}
+              onEnd={handleEnd}
+              dialog={dialog}
+            />
+          </ChapterMain>
+        </ChapterBackground>
       );
     }
   }

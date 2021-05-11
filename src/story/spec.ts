@@ -33,14 +33,11 @@ export interface Chapter {
   // Chapter index used for ordering
   index: number;
 
-  // Name of the chapter. Can be taken from the novel
-  name: string;
-
   // Slug to display in the url
   slug: string;
 
-  // Previev of what will happen in the chapter
-  description: string;
+  // Path to the audio
+  audio: string;
 
   // Path to the background image
   background: string;

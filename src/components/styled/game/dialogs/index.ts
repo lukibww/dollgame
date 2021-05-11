@@ -1,4 +1,3 @@
-export { Dialog } from "./dialog";
 export { DialogChoice } from "./dialog-choice";
 export { DialogLabel } from "./dialog-label";
 export { DialogText } from "./dialog-text";

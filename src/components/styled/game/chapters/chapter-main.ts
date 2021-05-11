@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
-export const Dialog = styled.div`
+export const ChapterMain = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   border-radius: 2px;
   position: relative;
+  overflow: auto;
   width: 100%;
   flex: 1;
   padding: 64px;

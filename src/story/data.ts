@@ -1,10 +1,12 @@
 import { Chapter, Choice, Dialog, Character } from "./spec";
 
+import RozprawaSądowaTło from "../assets/images/rozprawa_sądowa.jpg";
+import RozprawaSądowaAudio from "../assets/audio/rozprawa_sądowa.mp3";
+
 import Adwokat from "../assets/images/adwokat.png";
 import Baronowa from "../assets/images/baronowa.png";
 import Dziecko from "../assets/images/dziecko.png";
 import Maruszewicz from "../assets/images/maruszewicz.png";
-import RozprawaSądowa from "../assets/images/rozprawa_sądowa.jpg";
 import Rzecki from "../assets/images/rzecki.png";
 import Sędzia from "../assets/images/sędzia.png";
 import Służąca from "../assets/images/służąca.png";
@@ -26,11 +28,9 @@ export const chapters: Chapter[] = [
   {
     id: "73cf4f8a-00c9-4b8f-b66a-8f6a18d825cb",
     index: 1,
-    name: "Vivamus sodales",
     slug: "vivamus-sodales",
-    background: RozprawaSądowa,
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec egestas est consectetur ex vestibulum, nec dignissim justo congue.",
+    background: RozprawaSądowaTło,
+    audio: RozprawaSądowaAudio,
   },
 ];
 

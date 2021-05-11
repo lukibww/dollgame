@@ -2,7 +2,7 @@ import { ReactNode, useMemo, useState } from "react";
 import { Absolute, Audio } from "../../styled";
 import { MusicContext, MusicContextValue } from "./music-context";
 
-import gameplay from "../../../assets/audio/gameplay.mp3";
+import gameplay from "../../../assets/audio/rozprawa_sądowa.mp3";
 import win from "../../../assets/audio/win.mp3";
 import loose from "../../../assets/audio/loose.mp3";
 import click from "../../../assets/audio/click.mp3";
