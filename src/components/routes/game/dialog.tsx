@@ -10,9 +10,9 @@ import {
   DialogReturn,
 } from "../../styled";
 import { Link as WouterLink } from "wouter";
-import * as data from "../../../story/data";
 import * as Spec from "../../../story/spec";
 import { Fragment } from "react";
+import { useData } from "../../general/data";
 
 interface GameDialogProps {
   dialog?: Spec.Dialog;
@@ -21,6 +21,8 @@ interface GameDialogProps {
 }
 
 export function GameDialog({ dialog, onChoice, onEnd }: GameDialogProps) {
+  const data = useData();
+
   const special = dialog && dialog.type !== "default";
   const choices = data.choices.filter(
     (choice) => choice.dialogId === dialog?.id

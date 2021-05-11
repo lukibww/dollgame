@@ -1,4 +1,30 @@
 /**
+ * Everything in one place
+ */
+export interface Data {
+  metadata: Metadata;
+
+  chapters: Chapter[];
+
+  dialogs: Dialog[];
+
+  choices: Choice[];
+
+  characters: Character[];
+}
+
+/**
+ * General data used across the app
+ */
+export interface Metadata {
+  // Path to the win audio
+  win: string;
+
+  // Path to the loose audio
+  loose: string;
+}
+
+/**
  * Some thread or episode of the novel
  */
 export interface Chapter {

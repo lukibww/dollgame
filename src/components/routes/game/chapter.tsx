@@ -3,8 +3,8 @@ import { useMemo, useState } from "react";
 import { DefaultParams, useLocation } from "wouter";
 import { GameDialog } from "./dialog";
 import { ChapterBackground, ChapterMain, ChapterAudio } from "../../styled";
-import * as data from "../../../story/data";
 import * as Spec from "../../../story/spec";
+import { useData } from "../../general/data";
 
 export interface GameChapterParams extends DefaultParams {
   slug: string;
@@ -15,13 +15,19 @@ interface GameChapterProps {
 }
 
 export function GameChapter({ params }: GameChapterProps) {
-  const [dialog, setDialog] = useState<Spec.Dialog | null>(null);
+  const data = useData();
 
   const [, setLocation] = useLocation();
 
   const chapter = useMemo(() => {
     return data.chapters.find((chapter) => chapter.slug === params.slug);
-  }, [params.slug]);
+  }, [data, params.slug]);
+
+  const [dialog, setDialog] = useState(() =>
+    data.dialogs.find(
+      (dialog) => dialog.chapterId === chapter?.id && dialog.index === 1
+    )
+  );
 
   if (chapter && dialog) {
     const handleChoice = (value: Spec.Choice) => {

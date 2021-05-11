@@ -1,4 +1,7 @@
-import { Chapter, Choice, Dialog, Character } from "./spec";
+import { Data, Metadata, Chapter, Choice, Dialog, Character } from "./spec";
+
+import win from "../assets/audio/win.mp3";
+import loose from "../assets/audio/loose.mp3";
 
 import RozprawaSądowaTło from "../assets/images/rozprawa_sądowa.jpg";
 import RozprawaSądowaAudio from "../assets/audio/rozprawa_sądowa.mp3";
@@ -13,16 +16,10 @@ import Służąca from "../assets/images/służąca.png";
 import Stawska from "../assets/images/stawska.png";
 import Wokulski from "../assets/images/wokulski.png";
 
-/**
- * Because its simple school project we do not care about
- * the fact that someone could look the to source code and
- * start cheating
- */
-
-/**
- * Plase increment this value every time you change anything
- */
-export const version = 1;
+export const metadata: Metadata = {
+  win,
+  loose,
+};
 
 export const chapters: Chapter[] = [
   {
@@ -249,3 +246,13 @@ export const characters: Character[] = [
     image: Stawska,
   },
 ];
+
+const data: Data = {
+  chapters,
+  characters,
+  choices,
+  dialogs,
+  metadata,
+};
+
+export default data;
