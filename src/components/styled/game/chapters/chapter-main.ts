@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ChapterMain = styled.main`
+export const ChapterMain = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,6 +9,7 @@ export const ChapterMain = styled.main`
   position: relative;
   overflow: auto;
   width: 100%;
+  height: 100%;
   flex: 1;
   padding: 64px;
   border: 3px solid ${({ theme }) => theme.colors.text};

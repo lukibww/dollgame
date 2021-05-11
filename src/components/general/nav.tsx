@@ -31,8 +31,6 @@ export function Nav() {
     };
   }, [menuOpen]);
 
-  if (location.startsWith("/game") && location !== "/game") return null;
-
   if (showMenu) {
     const handleMenuClick = () => {
       setMenuOpen(true);
