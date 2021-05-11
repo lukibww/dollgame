@@ -9,6 +9,7 @@ import {
   Audio,
 } from "../../styled";
 import { GameSuccess } from "./success";
+import { GameFailure } from "./failure";
 import { useData } from "../../general/data";
 import * as Spec from "../../../story/spec";
 
@@ -51,7 +52,7 @@ export function GameChapter({ params }: GameChapterProps) {
           {dialog.type === "success" ? (
             <GameSuccess message={dialog.text} />
           ) : dialog.type === "failure" ? (
-            <GameSuccess message={dialog.text} />
+            <GameFailure message={dialog.text} />
           ) : (
             <Fragment>
               <Audio src={chapter.audio} autoPlay loop />
