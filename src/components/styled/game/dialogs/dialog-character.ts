@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export interface DialogCharacterProps {
-  source?: string;
+  source?: string | null;
 }
 
 export const DialogCharacter = styled.div<DialogCharacterProps>`

@@ -41,7 +41,7 @@ export function GameDialog({ dialog, onChoice }: GameDialogProps) {
       <DialogText>{dialog.text}</DialogText>
       <DialogChoices>
         {choices
-          .sort((a, b) => a.index - b.index)
+          .sort((a, b) => a.id - b.id)
           .map((choice) => (
             <DialogChoice key={choice.id} onClick={handleChoice(choice)}>
               {choice.text}

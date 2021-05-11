@@ -86,7 +86,7 @@ export function Game() {
       </Header>
       <HomeGroup>
         {data.chapters
-          .sort((a, b) => a.index - b.index)
+          .sort((a, b) => a.id - b.id)
           .map(({ id, slug, name, background }) => (
             <HomePreview
               role="button"

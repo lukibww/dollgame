@@ -30,7 +30,7 @@ export function GameChapter({ params }: GameChapterProps) {
 
   const [dialog, setDialog] = useState(() =>
     data.dialogs.find(
-      (dialog) => dialog.chapterId === chapter?.id && dialog.index === 1
+      (dialog) => dialog.chapterId === chapter?.id && dialog.id === 1
     )
   );
 

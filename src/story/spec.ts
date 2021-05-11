@@ -29,10 +29,7 @@ export interface Metadata {
  */
 export interface Chapter {
   // Unique chapter ID
-  id: string;
-
-  // Chapter index used for ordering
-  index: number;
+  id: number;
 
   // The name of the chapter
   name: string;
@@ -52,10 +49,7 @@ export interface Chapter {
  */
 export interface Dialog {
   // Unique dialog ID
-  id: string;
-
-  // Dialog index used for ordering
-  index: number;
+  id: number;
 
   // Description of the situation
   text: string;
@@ -64,10 +58,10 @@ export interface Dialog {
   type: "default" | "success" | "failure";
 
   // Reference ID to the character
-  characterId: number;
+  characterId: number | null;
 
   // Reference ID to the chapter
-  chapterId: string;
+  chapterId: number;
 }
 
 /**
@@ -75,19 +69,16 @@ export interface Dialog {
  */
 export interface Choice {
   // Unique choice ID
-  id: string;
-
-  // Choice index used for ordering
-  index: number;
+  id: number;
 
   // Text representing the choice
   text: string;
 
   // Reference to the next dialog
-  next: string;
+  next: number;
 
   // Reference ID to the dialog
-  dialogId: string;
+  dialogId: number;
 }
 
 /**
@@ -101,5 +92,5 @@ export interface Character {
   name: string;
 
   // Path to the character image source
-  image: string;
+  image: string | null;
 }
