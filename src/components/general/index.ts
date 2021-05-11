@@ -5,5 +5,4 @@ export { Sentiniel } from "./sentiniel";
 export { Backdrop } from "./backdrop";
 
 export * from "./music";
-export * from "./progress";
 export * from "./background";

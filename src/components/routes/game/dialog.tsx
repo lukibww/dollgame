@@ -1,7 +1,6 @@
 import { NotFoundRedirect } from "../not-found-redirect";
 import {
   Button,
-  DialogMain,
   DialogChoice,
   DialogLabel,
   DialogText,
@@ -13,7 +12,7 @@ import {
 import { Link as WouterLink } from "wouter";
 import * as data from "../../../story/data";
 import * as Spec from "../../../story/spec";
-import { DialogBackground } from "../../styled/game/dialogs/dialog-background";
+import { Fragment } from "react";
 
 interface GameDialogProps {
   dialog?: Spec.Dialog;
@@ -38,7 +37,7 @@ export function GameDialog({ dialog, onChoice, onEnd }: GameDialogProps) {
   if (!dialog || !character) return <NotFoundRedirect />;
 
   return (
-    <DialogMain>
+    <Fragment>
       <DialogCharacter source={character.image} />
       <DialogLabel>{character.name}</DialogLabel>
       <DialogText>{dialog.text}</DialogText>
@@ -60,6 +59,6 @@ export function GameDialog({ dialog, onChoice, onEnd }: GameDialogProps) {
       <WouterLink href="/game">
         <DialogReturn>Powrót</DialogReturn>
       </WouterLink>
-    </DialogMain>
+    </Fragment>
   );
 }

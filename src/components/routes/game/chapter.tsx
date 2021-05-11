@@ -1,5 +1,5 @@
 import { NotFoundRedirect } from "../not-found-redirect";
-import { useBackground, useMusic, useProgress } from "../../general";
+import { useBackground, useMusic } from "../../general";
 import { genHash, useId } from "../../../utils";
 import { useEffect, useMemo, useState } from "react";
 import { DefaultParams, useLocation } from "wouter";
@@ -22,7 +22,6 @@ interface GameChapterProps {
 }
 
 export function GameChapter({ params }: GameChapterProps) {
-  const progress = useProgress();
   const music = useMusic();
 
   const [dialog, setDialog] = useState<Spec.Dialog | null>(null);
@@ -87,7 +86,7 @@ export function GameChapter({ params }: GameChapterProps) {
     };
   }, [background, chapter]);
 
-  if (progress && music) {
+  if (music) {
     if (chapter && dialog) {
       const handleChoice = (value: Spec.Choice) => {
         music.add({ src: click, key: genHash() });
@@ -98,14 +97,11 @@ export function GameChapter({ params }: GameChapterProps) {
         );
 
         if (nextDialog) {
-          progress.edit(chapter.id, { dialogId: nextDialog.id });
           setDialog(nextDialog);
         }
       };
 
       const handleEnd = () => {
-        progress.remove(chapter.id);
-
         setLocation("/");
       };
 

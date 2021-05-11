@@ -1,29 +1,4 @@
 /**
- * Progress that user has made
- */
-export interface Progress {
-  // Version of the app
-  version: number;
-
-  // Progress chapters
-  chapters: ProgressChapter[];
-}
-
-/**
- * Each chapter can have its own progress
- */
-export interface ProgressChapter {
-  // Unique progress chapter ID. Same as `chapterId`
-  id: string;
-
-  // Reference ID to the current chapter
-  chapterId: string;
-
-  // Reference ID to the current dialog
-  dialogId: string;
-}
-
-/**
  * Some thread or episode of the novel
  */
 export interface Chapter {
@@ -32,6 +7,9 @@ export interface Chapter {
 
   // Chapter index used for ordering
   index: number;
+
+  // The name of the chapter
+  name: string;
 
   // Slug to display in the url
   slug: string;

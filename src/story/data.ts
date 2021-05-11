@@ -28,6 +28,7 @@ export const chapters: Chapter[] = [
   {
     id: "73cf4f8a-00c9-4b8f-b66a-8f6a18d825cb",
     index: 1,
+    name: "Vivamus Sodales",
     slug: "vivamus-sodales",
     background: RozprawaSądowaTło,
     audio: RozprawaSądowaAudio,
