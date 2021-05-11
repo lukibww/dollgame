@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Header, Paragraph, List } from "../styled";
 
 const authors = [
-  "Fabuła - Maksymilian Mazela, Leon Wałach",
+  "Fabuła - Maksymilian Mazela, Leon Wałach, Mateusz Miliutin",
   "Kod - Łukasz Włodarczyk",
   "Grafika - Zuzanna Bielec, Julia Matoga",
   "Efekty dźwiękowe - Magdalena Sulima",
