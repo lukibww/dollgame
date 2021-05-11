@@ -2,8 +2,12 @@ import { NotFoundRedirect } from "../not-found-redirect";
 import { Fragment, useMemo, useState } from "react";
 import { DefaultParams } from "wouter";
 import { GameDialog } from "./dialog";
-import { ChapterBackground, ChapterMain, Audio } from "../../styled";
-import { GameFailure } from "./failure";
+import {
+  ChapterWrapper,
+  ChapterBackground,
+  ChapterMain,
+  Audio,
+} from "../../styled";
 import { GameSuccess } from "./success";
 import { useData } from "../../general/data";
 import * as Spec from "../../../story/spec";
@@ -41,12 +45,13 @@ export function GameChapter({ params }: GameChapterProps) {
     };
 
     return (
-      <ChapterBackground source={chapter.background}>
+      <ChapterWrapper>
+        <ChapterBackground source={chapter.background} />
         <ChapterMain>
           {dialog.type === "success" ? (
             <GameSuccess message={dialog.text} />
           ) : dialog.type === "failure" ? (
-            <GameFailure message={dialog.text} />
+            <GameSuccess message={dialog.text} />
           ) : (
             <Fragment>
               <Audio src={chapter.audio} autoPlay loop />
@@ -54,7 +59,7 @@ export function GameChapter({ params }: GameChapterProps) {
             </Fragment>
           )}
         </ChapterMain>
-      </ChapterBackground>
+      </ChapterWrapper>
     );
   }
 

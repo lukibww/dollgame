@@ -1,4 +1,4 @@
-import { Button, DialogLabel, DialogText, DialogResume } from "../../styled";
+import { Button, DialogLabel, DialogText } from "../../styled";
 import { Link as WouterLink } from "wouter";
 import { useData } from "../../general";
 import { Audio } from "../../styled";
@@ -14,13 +14,11 @@ export function GameFailure({ message }: GameFailureProps) {
   return (
     <Fragment>
       <Audio src={metadata.loose} autoPlay loop />
-      <DialogResume>
-        <DialogLabel>Przegrana</DialogLabel>
-        <DialogText>{message}</DialogText>
-        <WouterLink href="/game">
-          <Button>Zakończ</Button>
-        </WouterLink>
-      </DialogResume>
+      <DialogLabel>Przegrana</DialogLabel>
+      <DialogText>{message}</DialogText>
+      <WouterLink href="/">
+        <Button>Zakończ</Button>
+      </WouterLink>
     </Fragment>
   );
 }
