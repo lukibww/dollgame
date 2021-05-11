@@ -1,4 +1,4 @@
-import { ChapterPage, Header, Paragraph, Button } from "../../styled";
+import { Dialog, Header, Paragraph, Button } from "../../styled";
 import * as Spec from "../../../story/spec";
 import { NotFoundRedirect } from "../not-found-redirect";
 
@@ -12,7 +12,7 @@ export function GameEntry({ chapter, started, onStart }: GameEntryProps) {
   if (!chapter) return <NotFoundRedirect />;
 
   return (
-    <ChapterPage>
+    <Dialog>
       <Header small gutter>
         {chapter.name}
       </Header>
@@ -20,6 +20,6 @@ export function GameEntry({ chapter, started, onStart }: GameEntryProps) {
       <Button onClick={onStart}>
         {started ? "Kontyntynuj" : "Rozpocznij"}
       </Button>
-    </ChapterPage>
+    </Dialog>
   );
 }

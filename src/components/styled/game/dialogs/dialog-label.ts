@@ -1,24 +1,12 @@
 import styled from "styled-components";
 
-export interface DialogLabelProps {
-  type?: "default" | "success" | "failure";
-}
-
-export const DialogLabel = styled.label<DialogLabelProps>`
+export const DialogLabel = styled.label`
   font-size: 2.25rem;
   letter-spacing: 0.5px;
   text-align: center;
   line-height: 1.5;
   font-weight: 400;
-  margin-bottom: 24px;
-  color: ${({ theme, type }) =>
-    theme.colors[
-      type === "success"
-        ? "success"
-        : type === "failure"
-        ? "error"
-        : "secondary"
-    ]};
+  color: ${({ theme }) => theme.colors.secondary};
   font-family: ${({ theme }) => theme.fonts.heading};
 
   @media (max-width: 1000px) {

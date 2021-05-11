@@ -4,11 +4,10 @@ import {
   Dialog,
   DialogChoice,
   DialogLabel,
-  DialogSection,
   DialogText,
   DialogResume,
   DialogCharacter,
-  ChapterPage,
+  DialogChoices,
 } from "../../styled";
 import * as data from "../../../story/data";
 import * as Spec from "../../../story/spec";
@@ -36,29 +35,25 @@ export function GameDialog({ dialog, onChoice, onEnd }: GameDialogProps) {
   if (!dialog || !character) return <NotFoundRedirect />;
 
   return (
-    <ChapterPage>
+    <Dialog>
       <DialogCharacter source={character.image} />
-      <Dialog column={special}>
-        <DialogSection>
-          <DialogLabel type={dialog.type}>{character.name}</DialogLabel>
-          <DialogText>{dialog.text}</DialogText>
-        </DialogSection>
-        {special ? (
-          <DialogResume>
-            <Button onClick={onEnd}>Zakończ</Button>
-          </DialogResume>
-        ) : (
-          <DialogSection>
-            {choices
-              .sort((a, b) => a.index - b.index)
-              .map((choice) => (
-                <DialogChoice key={choice.id} onClick={handleChoice(choice)}>
-                  {choice.text}
-                </DialogChoice>
-              ))}
-          </DialogSection>
-        )}
-      </Dialog>
-    </ChapterPage>
+      <DialogLabel>{character.name}</DialogLabel>
+      <DialogText>{dialog.text}</DialogText>
+      {special ? (
+        <DialogResume>
+          <Button onClick={onEnd}>Zakończ</Button>
+        </DialogResume>
+      ) : (
+        <DialogChoices>
+          {choices
+            .sort((a, b) => a.index - b.index)
+            .map((choice) => (
+              <DialogChoice key={choice.id} onClick={handleChoice(choice)}>
+                {choice.text}
+              </DialogChoice>
+            ))}
+        </DialogChoices>
+      )}
+    </Dialog>
   );
 }
