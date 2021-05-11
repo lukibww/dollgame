@@ -8,7 +8,9 @@ import {
   DialogResume,
   DialogCharacter,
   DialogChoices,
+  DialogReturn,
 } from "../../styled";
+import { Link as WouterLink } from "wouter";
 import * as data from "../../../story/data";
 import * as Spec from "../../../story/spec";
 
@@ -54,6 +56,9 @@ export function GameDialog({ dialog, onChoice, onEnd }: GameDialogProps) {
             ))}
         </DialogChoices>
       )}
+      <WouterLink href="/game">
+        <DialogReturn>Powrót</DialogReturn>
+      </WouterLink>
     </Dialog>
   );
 }
