@@ -722,14 +722,14 @@ export const dialogs: Dialog[] = [
     id: 1002,
     chapterId: 1,
     characterId: null,
-    text: "Ignacy Rzecki został wyproszony z sali rozpraw przez kłótnię, doprowadzając do przegranej Stawskiej. Spróbuj ponownie",
+    text: "Ignacy Rzecki został wyproszony z sali rozpraw, przez co później nie mógł udzielić pomocy w obronie przed zarzutami baronowej Krzeszowskiej. Stawska przegrała proces.",
     type: "failure",
   },
   {
     id: 1003,
     chapterId: 1,
     characterId: null,
-    text: "Sędzia uwierzył w kłamstwo Maruszewicza, co doprowadza do przegrane Heleny Stawskiej. Spróbuj ponownie",
+    text: "Sędzia uwierzył w kłamstwo Marusiewicza. Stawska przegrała proces.",
     type: "failure",
   },
   {
@@ -990,7 +990,7 @@ export const choices: Choice[] = [
   },
   {
     id: 35,
-    next: 1001,
+    next: 1004,
     dialogId: 32,
     text: "Tak...",
   },
@@ -998,7 +998,7 @@ export const choices: Choice[] = [
     id: 36,
     next: 33,
     dialogId: 32,
-    text: "Nie wiem która... - szepnęła zapytana.",
+    text: "Nie wiem która...",
   },
   {
     id: 37,
