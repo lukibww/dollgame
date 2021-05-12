@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const DialogText = styled.p`
-  font-size: 2.25rem;
+  font-size: 2rem;
   letter-spacing: 0.5px;
   text-align: center;
   margin-top: 24px;
@@ -13,10 +13,10 @@ export const DialogText = styled.p`
   font-family: ${({ theme }) => theme.fonts.body};
 
   @media (max-width: 1000px) {
-    font-size: 1.75rem;
+    font-size: 1.625rem;
   }
 
   @media (max-width: 500px) {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
   }
 `;

@@ -26,6 +26,8 @@ export const chapters: Chapter[] = [
     id: 1,
     name: "Rozprawa Sądowa",
     slug: "rozprawa-sadowa",
+    description:
+      "Baronowej Krzeszowskiej zniknęła lalka - jedyne, co pozostało jej po zmarłej córce. Jej podejrzenie pada na Helenę Stawską, córce której ta lalka bardzo się spodobała. Ostatecznie baronowa błędnie oskarża Stawską i składa na nią pozew do sądu. Pomóż Stawskiej wygrać proces sądowy i nie zostać bezpodstawnie ukaraną.",
     audio: RozprawaSądowaMuzyka,
     background: RozprawaSądowaTło,
   },

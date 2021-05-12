@@ -34,6 +34,9 @@ export interface Chapter {
   // The name of the chapter
   name: string;
 
+  // The description of the chapter
+  description: string;
+
   // Slug to display in the url
   slug: string;
 
