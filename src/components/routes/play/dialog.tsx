@@ -9,7 +9,7 @@ import {
 } from "../../styled";
 import { Link as WouterLink } from "wouter";
 import * as Spec from "../../../story/spec";
-import { Fragment } from "react";
+import { Fragment, useEffect, useRef } from "react";
 import { useData } from "../../general/data";
 
 interface GameDialogProps {
@@ -18,7 +18,17 @@ interface GameDialogProps {
 }
 
 export function GameDialog({ dialog, onChoice }: GameDialogProps) {
+  const firstRef = useRef<HTMLButtonElement | null>(null);
+
   const data = useData();
+
+  useEffect(() => {
+    const first = firstRef.current;
+
+    if (first) {
+      first.focus();
+    }
+  }, [dialog]);
 
   const choices = data.choices.filter(
     (choice) => choice.dialogId === dialog?.id
@@ -42,8 +52,12 @@ export function GameDialog({ dialog, onChoice }: GameDialogProps) {
       <DialogChoices>
         {choices
           .sort((a, b) => a.id - b.id)
-          .map((choice) => (
-            <DialogChoice key={choice.id} onClick={handleChoice(choice)}>
+          .map((choice, index) => (
+            <DialogChoice
+              key={choice.id}
+              onClick={handleChoice(choice)}
+              ref={index === 0 ? firstRef : undefined}
+            >
               {choice.text}
             </DialogChoice>
           ))}
