@@ -4,14 +4,14 @@ export const DialogChoice = styled.button`
   padding: 4px;
   text-transform: uppercase;
   width: 100%;
-  padding: 16px 24px;
+  padding: 16px 32px;
   letter-spacing: 1px;
   outline: 0 none;
   cursor: pointer;
   font-size: 1.125rem;
   transition-property: background-color, color;
   transition-duration: 0.1s;
-  border-radius: 2px;
+  border-radius: 3px;
   transition-timing-function: ease;
   font-family: ${({ theme }) => theme.fonts.button};
   border: 2px solid ${({ theme }) => theme.colors.primary};
